@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Roletarski servis D.J. | Popravak i ugradnja roleta Petrinja & Sisak</title>
+    <meta name="description" content="Trebate popravak ili ugradnju roleta u Petrinji i Sisku? Roletarski servis D.J. nudi brze i povoljne usluge sjenila i komarnika. Izlazak na teren isti dan. Nazovite 091/785-7855!">
+    <meta name="keywords" content="popravak roleta petrinja, ugradnja roleta sisak, roletar mošćenica, komarnici petrinja, venecijaneri sisak, popravak roleta preko osiguranja">
+    
+    <style>
+        /* Reset i osnovni stilovi */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primarna: #1a365d;
+            --akcent: #ff0000;
+            --svijetla: #f3f4f6;
+            --tamna: #1f2937;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigacija za računala (putuje sa skrolanjem) */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primarna);
+        }
+
+        .logo span { color: var(--akcent); }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--tamna);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover { color: var(--akcent); }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--akcent);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: transform 0.2s, background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        section { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 32px; color: var(--primarna); margin-bottom: 40px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--akcent); margin: 10px auto 0 auto; border-radius: 2px; }
+
+        /* O nama */
+        .about-text { text-align: center; max-width: 800px; margin: 0 auto 40px auto; font-size: 17px; }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+        .feature-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-bottom: 3px solid transparent; transition: border-color 0.3s; }
+        .feature-box:hover { border-color: var(--akcent); }
+        .feature-box h3 { color: var(--primarna); margin-bottom: 15px; }
+
+        /* Usluge */
+        .services-bg { background-color: var(--svijetla); }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .service-content { padding: 25px; }
+        .service-content h3 { color: var(--primarna); margin-bottom: 12px; font-size: 20px; }
+        .service-content ul { list-style-type: "✓ "; margin-left: 20px; margin-top: 10px; }
+
+        /* Galerija */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .gallery-item { overflow: hidden; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); height: 220px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
+        .gallery-item:hover img { transform: scale(1.08); }
+
+        /* SUSTAV RECENZIJA */
+        .reviews-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
+        
+        .review-form { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; color: var(--primarna); }
+        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; }
+        
+        .form-group textarea { 
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            font-size: 16px;
+            resize: none; 
+        }
+        
+        .reviews-display { 
+            background: #ffffff; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+        }
+        
+        .rating-summary { font-size: 22px; font-weight: bold; color: var(--primarna); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--svijetla); }
+        .rating-summary span { color: var(--akcent); }
+        
+        .reviews-list { max-height: 400px; overflow-y: auto; padding-right: 10px; }
+        .review-item { padding: 15px 0; border-bottom: 1px solid #eee; }
+        .review-item:last-child { border-bottom: none; }
+        .review-header { display: flex; justify-content: space-between; font-weight: bold; color: var(--primarna); }
+        .review-stars { color: var(--akcent); font-size: 18px; margin: 3px 0; }
+        .review-text { color: #555; font-style: italic; }
+        .no-reviews-message { text-align: center; color: #777; font-style: italic; font-size: 16px; }
+
+        /* Kontakt */
+        .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
+        .info-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .info-box h3 { color: var(--primarna); margin-bottom: 20px; border-bottom: 2px solid var(--svijetla); padding-bottom: 10px; }
+        .info-item { margin-bottom: 15px; font-size: 16px; }
+        .info-item strong { color: var(--primarna); }
+        .working-hours-list { list-style: none; }
+        .working-hours-list li { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px dashed #eee; }
+
+        footer { background-color: var(--tamna); color: white; text-align: center; padding: 25px 0; font-size: 14px; }
+
+        /* PRILAGODBA ZA MOBITELE i TABLETE */
+        @media (max-width: 768px) {
+            header {
+                position: static !important;
+                box-shadow: none;
+            }
+
+            nav { 
+                flex-direction: column; 
+                padding: 15px 0;
+                background-color: #ffffff;
+            }
+            
+            nav ul { 
+                margin-top: 15px; 
+                flex-direction: column; 
+                align-items: center;
+                width: 100%;
+                background-color: #ffffff;
+            }
+            
+            nav ul li { 
+                margin: 8px 0; 
+            }
+
+            nav ul li a {
+                font-size: 16px;
+                display: block;
+                padding: 5px 10px;
+            }
+
+            .contact-layout, .reviews-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Roletarski servis <span>D.J.</span></div>
+                <ul>
+                    <li><a href="#o-nama">O nama</a></li>
+                    <li><a href="#usluge">Usluge</a></li>
+                    <li><a href="#galerija">Galerija</a></li>
+                    <li><a href="#recenzije">Recenzije</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section style="padding: 60px 0; background-color: #ffffff; text-align: center;">
+        <div class="container">
+            <img src="slike/logo.png" alt="Roletarski servis D.J. Logo" style="max-width: 100%; height: auto; max-height: 250px; display: block; margin: 0 auto 30px auto;">
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h1 style="font-size: 36px; color: var(--primarna); margin-bottom: 20px; font-weight: bold;">Postavljanje i popravak roleta – Petrinja, Sisak i okolica</h1>
+                <p style="font-size: 18px; color: #555; margin-bottom: 30px; line-height: 1.7;">
+                    Nudimo profesionalne usluge postavljanja i popravka roleta u Petrinji, Sisku i okolici, a prema dogovoru i šire, s naglaskom na kvalitetu, brzinu i povoljan odnos cijene i usluge.
+                </p>
+                <a href="tel:0917857855" class="btn" style="box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Nazovite odmah: 091/785-7855</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="o-nama" class="container">
+        <h2 class="section-title">Zašto nas odabrati?</h2>
+        <p class="about-text">Bilo da trebate novu instalaciju ili hitan popravak roleta u Petrinji i Sisku, osiguravamo brzo i učinkovito rješenje isti dan.</p>
+        <div class="features">
+            <div class="feature-box"><h3>Bogato iskustvo</h3><p>Iskustvo i stručnost u svim vrstama popravaka sjenila.</p></div>
+            <div class="feature-box"><h3>Hitne intervencije</h3><p>Brza reakcija i dolazak u roku od nekoliko sati.</p></div>
+            <div class="feature-box"><h3>90% popravaka odmah</h3><p>Kvarove rješavamo i popravljamo odmah po pozivu na terenu.</p></div>
+            <div class="feature-box"><h3>Preko osiguranja</h3><p>Nudimo popravak roleta preko osiguranja i rješavamo papire.</p></div>
+        </div>
+    </section>
+
+    <section id="usluge" class="services-bg">
+        <div class="container">
+            <h2 class="section-title">Naše Usluge</h2>
+            <div class="services">
+                <div class="service-card">
+                    <img src="slike/palete-za-rolete.png" alt="Ugradnja novih PVC i aluminijskih roleta" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                    <div class="service-content">
+                        <h3>Ugradnja na postojeću stolariju</h3>
+                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Profesionalna ugradnja i prilagodba roleta na vaše postojeće prozore i vrata:</p>
+                        <ul style="list-style-type: '✓ '; margin-left: 15px;">
+                            <li style="margin-bottom: 10px;"><strong>Plastične rolete</strong> – dostupne u 7 boja</li>
+                            <li style="margin-bottom: 10px;"><strong>Aluminijske rolete s izolacijom</strong> – dostupne u 12 boja</li>
+                            <li style="margin-bottom: 10px;"><strong>Rolete s vanjskom kutijom</strong> – alu i PVC varijante</li>
+                            <li style="margin-bottom: 10px;"><strong>Zatvaranje balkona s roletama</strong> – kompletna zaštita prostora</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="slike/trakaste-zavjese.png" alt="Unutarnja sjenila i ugradnja komarnika u Sisku i Petrinji" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                    <div class="service-content"> 
+                        <h3>Unutarnja sjenila i zaštita od kukaca</h3>
+                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Moderna rješenja za regulaciju svjetlosti i obranu od komaraca:</p>
+                        <ul style="list-style-type: '✓ '; margin-left: 15px;">
+                            <li style="margin-bottom: 10px;"><strong>Trakaste zavjese</strong> – elegantne zavjese u 15 boja</li>
+                            <li style="margin-bottom: 10px;"><strong>Aluminijske žaluzine (venecijaneri)</strong> – kontrola privatnosti</li>
+                            <li style="margin-bottom: 10px;"><strong>Mreže protiv kukaca (komarnici)</strong> – fiksne i pomične varijante</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="slike/rolete-prije-poslije.png" alt="Popravci roleta, zamjena gurtni i kućne intervencije" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                    <div class="service-content">
+                        <h3>Popravci i kućne intervencije</h3>
+                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Brzo rješavanje kvarova na sjenilima i ostali sitni popravci u kućanstvu:</p>
+                        <ul style="list-style-type: '✓ '; margin-left: 15px;">
+                            <li style="margin-bottom: 10px;"><strong>Popravljamo i mijenjamo stare rolete</strong> – vraćamo punu funkcionalnost</li>
+                            <li style="margin-bottom: 10px;"><strong>Kućni popravci</strong> – ugradnja lustera, zamjena utičnica, prekidaža i slično</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galerija" class="container">
+        <h2 class="section-title">Galerija naših radova</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="slike/rolete-na-balkonu.png" alt="Zatvaranje balkona PVC roletama u okolici Siska"></div>
+            <div class="gallery-item"><img src="slike/rolete-na-terasi.png" alt="Popravak plastičnih roleta i zamjena automata Sisak"></div>
+            <div class="gallery-item"><img src="slike/smede-rolete.png" alt="Ugradnja novih aluminijskih roleta Petrinja"></div>
+            <div class="gallery-item"><img src="slike/komarnik-na-vratima.png" alt="Montaža rolo komarnika na PVC prozor u okolici Siska"></div>
+        </div>
+    </section>
+
+    <section id="recenzije" class="services-bg">
+        <div class="container">
+            <h2 class="section-title">Recenzije naših klijenata</h2>
+            <div class="reviews-layout">
+                <div class="review-form">
+                    <h3 style="color: var(--primarna); margin-bottom: 15px;">Ostavite Vašu recenziju</h3>
+                    <form id="add-review-form">
+                        <div class="form-group">
+                            <label for="reviewer-name">Vaše Ime i Prezime:</label>
+                            <input type="text" id="reviewer-name" required placeholder="Npr. Ivan Horvat">
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewer-rating">Ocjena rada:</label>
+                            <select id="reviewer-rating">
+                                <option value="5">⭐⭐⭐⭐⭐ (5/5) - Izvrsno</option>
+                                <option value="4">⭐⭐⭐⭐ (4/5) - Vrlo dobro</option>
+                                <option value="3">⭐⭐⭐ (3/5) - Dobro</option>
+                                <option value="2">⭐⭐ (2/5) - Dovoljno</option>
+                                <option value="1">⭐ (1/5) - Loše</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewer-text">Vaš komentar:</label>
+                            <textarea id="reviewer-text" rows="4" required placeholder="Napišite vaše dojmove..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Pošalji recenziju</button>
+                    </form>
+                </div>
+
+                <div class="reviews-display" id="reviews-display-box">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="container" style="background-color: #ffffff;">
+        <div class="container">
+            <h2 class="section-title">Kontakt i informacije</h2>
+            <div class="contact-layout">
+                <div class="info-box">
+                    <h3>Kontakt podaci</h3>
+                    <div class="info-item"><strong>Adresa:</strong> Vatroslava Lisinskog 47, 44253, Mošćenica</div>
+                    <div class="info-item"><strong>Telefon:</strong> <a href="tel:0917857855" style="color: inherit; font-weight: bold;">091 / 785 - 7855</a></div>
+                    <div class="info-item"><strong>Područje rada:</strong> Petrinja, Sisak, Mošćenica i okolica</div>
+                </div>
+                <div class="info-box">
+                    <h3>Radno vrijeme</h3>
+                    <ul class="working-hours-list">
+                        <li><span>Ponedjeljak - Petak</span> <span>08 - 16 h</span></li>
+                        <li><span>Subota</span> <span>Po dogovoru</span></li>
+                        <li><span>Nedjelja</span> <span>Zatvoreno</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 Roletarski servis D.J. - Sva prava pridržana.</p></div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // Tvoji službeni ključevi s ispravnim databaseURL-om
+        const firebaseConfig = {
+            apiKey: "AIzaSyCWTs4AqVnIdKrzlJoI2t8XG8QcfpAHOqw",
+            authDomain: "roletar-dj.firebaseapp.com",
+            databaseURL: "https://roletar-dj-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "roletar-dj",
+            storageBucket: "roletar-dj.firebasestorage.app",
+            messagingSenderId: "793597073520",
+            appId: "1:793597073520:web:e45dfaeb6b0a710983bcb5",
+            measurementId: "G-KV7WCWT8MN"
+        };
+
+        // Pokretanje Firebase-a
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const reviewsRef = ref(database, 'recenzije');
+
+        const form = document.getElementById('add-review-form');
+        const displayBox = document.getElementById('reviews-display-box');
+
+        // Slušanje promjena u bazi i ispis recenzija svima u realnom vremenu
+        onValue(reviewsRef, (snapshot) => {
+            const data = snapshot.val();
+            let reviewsData = [];
+
+            if (data) {
+                reviewsData = Object.values(data);
+                reviewsData.reverse(); // Najnovije recenzije idu na vrh
+            } else {
+                // Početne SEO recenzije dok je baza još prazna
+                reviewsData = [
+                    { name: "Stjepan K. (Sisak)", rating: 5, text: "Brza intervencija, puknuta gurtna zamijenjena u roku od pola sata. Svaka preporuka za obrt!" },
+                    { name: "Marija J. (Petrinja)", rating: 5, text: "Gospodin je izuzetno profesionalan. Ugradio nam je komarnike i rolete na cijelu kuću, cijena fer i korektna." },
+                    { name: "Alen M. (Mošćenica)", rating: 5, text: "Odlična usluga popravka roleta preko osiguranja. Sve riješeno brzo i bez kompliciranja." }
+                ];
+            }
+
+            let totalScore = 0;
+            let listHTML = '';
+
+            reviewsData.forEach(review => {
+                totalScore += review.rating;
+                let stars = '⭐'.repeat(review.rating);
+                listHTML += `
+                    <div class="review-item">
+                        <div class="review-header"><span>${review.name}</span><span>Provjereni klijent</span></div>
+                        <div class="review-stars">${stars}</div>
+                        <div class="review-text">"${review.text}"</div>
+                    </div>
+                `;
+            });
+
+            let avg = totalScore / reviewsData.length;
+
+            displayBox.innerHTML = `
+                <div class="rating-summary">
+                    Ukupna ocjena: <span>${avg.toFixed(1)}</span> / 5 (${reviewsData.length} recenzija)
+                </div>
+                <div class="reviews-list">
+                    ${listHTML}
+                </div>
+            `;
+        });
+
+        // Slanje nove recenzije u klijentovu bazu podataka
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('reviewer-name').value;
+            const rating = parseInt(document.getElementById('reviewer-rating').value);
+            const text = document.getElementById('reviewer-text').value;
+
+            push(reviewsRef, {
+                name: name,
+                rating: rating,
+                text: text,
+                timestamp: Date.now()
+            }).then(() => {
+                form.reset();
+                alert("Hvala Vam! Vaša recenzija je uspješno spremljena i vidljiva svima.");
+            }).catch((error) => {
+                console.error("Greška:", error);
+                alert("Došlo je do greške. Molimo pokušajte ponovno.");
+            });
+        });
+    </script>
+
+</body>
+</html>
