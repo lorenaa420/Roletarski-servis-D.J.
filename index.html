@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Roletarski servis D.J. | Popravak i ugradnja roleta Petrinja & Sisak</title>
-    <meta name="description" content="Trebate popravak ili ugradnju roleta u Petrinji i Sisku? Roletarski servis D.J. nudi brze i povoljne usluge sjenila i komarnika. Izlazak na teren isti dan. Nazovite 091/785-7855!">
+    <meta name="description" content="Trebate popravak ili ugradnju roleta u Petrinji i Sisku? Roletarski servis D.J. nudi brze i povoljne usluge. Brzi izlazak na teren i popravak isti dan. Nazovite 091/785-7855!">
     <meta name="keywords" content="popravak roleta petrinja, ugradnja roleta sisak, roletar mošćenica, komarnici petrinja, venecijaneri sisak, popravak roleta preko osiguranja">
     
     <style>
@@ -38,7 +38,7 @@
             padding: 0 20px;
         }
 
-        /* Navigacija za računala (putuje sa skrolanjem) */
+        /* Navigacija */
         header {
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -94,6 +94,27 @@
         .section-title { text-align: center; font-size: 32px; color: var(--primarna); margin-bottom: 40px; position: relative; }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--akcent); margin: 10px auto 0 auto; border-radius: 2px; }
 
+        /* Istaknuta klijentova poruka */
+        .promo-box {
+            background-color: #fff5f5;
+            border-left: 5px solid var(--akcent);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin: 30px auto;
+            text-align: left;
+            max-width: 800px;
+        }
+        .promo-box p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        .promo-box strong {
+            color: var(--primarna);
+        }
+
         /* O nama */
         .about-text { text-align: center; max-width: 800px; margin: 0 auto 40px auto; font-size: 17px; }
 
@@ -116,7 +137,7 @@
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
         .gallery-item:hover img { transform: scale(1.08); }
 
-        /* SUSTAV RECENZIJA */
+        /* Sustav recenzija */
         .reviews-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
         
         .review-form { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
@@ -152,7 +173,6 @@
         .review-header { display: flex; justify-content: space-between; font-weight: bold; color: var(--primarna); }
         .review-stars { color: var(--akcent); font-size: 18px; margin: 3px 0; }
         .review-text { color: #555; font-style: italic; }
-        .no-reviews-message { text-align: center; color: #777; font-style: italic; font-size: 16px; }
 
         /* Kontakt */
         .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
@@ -165,7 +185,7 @@
 
         footer { background-color: var(--tamna); color: white; text-align: center; padding: 25px 0; font-size: 14px; }
 
-        /* PRILAGODBA ZA MOBITELE i TABLETE */
+        /* Mobiteli */
         @media (max-width: 768px) {
             header {
                 position: static !important;
@@ -188,12 +208,6 @@
             
             nav ul li { 
                 margin: 8px 0; 
-            }
-
-            nav ul li a {
-                font-size: 16px;
-                display: block;
-                padding: 5px 10px;
             }
 
             .contact-layout, .reviews-layout { grid-template-columns: 1fr; }
@@ -219,14 +233,28 @@
 
     <section style="padding: 60px 0; background-color: #ffffff; text-align: center;">
         <div class="container">
-            <img src="slike/logo.png.png" alt="Roletarski servis D.J. Logo" style="max-width: 100%; height: auto; max-height: 250px; display: block; margin: 0 auto 30px auto;" onerror="this.src='slike/logo.png'">
+            <img src="slike/logo.png" alt="Roletarski servis D.J. Logo" style="max-width: 100%; height: auto; max-height: 250px; display: block; margin: 0 auto 30px auto;">
             
             <div style="max-width: 800px; margin: 0 auto;">
                 <h1 style="font-size: 36px; color: var(--primarna); margin-bottom: 20px; font-weight: bold;">Postavljanje i popravak roleta – Petrinja, Sisak i okolica</h1>
-                <p style="font-size: 18px; color: #555; margin-bottom: 30px; line-height: 1.7;">
-                    Nudimo profesionalne usluge postavljanja i popravka roleta u Petrinji, Sisku i okolici, a prema dogovoru i šire, s naglaskom na kvalitetu, brzinu i povoljan odnos cijene i usluge.
+                
+                <p style="font-size: 19px; color: #444; margin-bottom: 25px; line-height: 1.6; font-weight: 500;">
+                    Trebate popravak ili ugradnju roleta u Petrinji i Sisku? Roletarski servis D.J. nudi brze i povoljne usluge. Brzi izlazak na teren i popravak isti dan.
                 </p>
-                <a href="tel:0917857855" class="btn" style="box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Nazovite odmah: 091/785-7855</a>
+                
+                <div class="promo-box">
+                    <p>
+                        <strong>Pokvarila vam se roleta, smeta vam svjetlost ili vas sunce bode u oči?</strong> Napadaju vas dosadne bube, pa se po danu ne možete opustiti u svojoj kući od muha i raznih letećih insekata, a po noći ne možete spavati od napornih komaraca? 
+                    </p>
+                    <p>
+                        Obratite nam se s povjerenjem i vrlo brzo će vaši problemi nestati! Naša tvrtka iz <strong>Mošćenice kod Petrinje</strong> vrši popravak svih vrsta roleta, zatvaranje terasa roletama, izmjeru i ugradnju novih PVC i ALU roleta (čak i tamo gdje ih nikada nije bilo), ugradnju rolo, fiksnih i pomičnih komarnika, mreža protiv insekata, alu žaluzina (venecijanera) te trakastih zavjesa.
+                    </p>
+                    <p style="margin-bottom: 0; font-weight: bold; color: var(--primarna);">
+                        Za sve informacije i dogovor nazovite nas pouzdano na telefon!
+                    </p>
+                </div>
+
+                <a href="tel:0917857855" class="btn" style="box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 10px;">Nazovite odmah: 091/785-7855</a>
             </div>
         </div>
     </section>
@@ -235,10 +263,10 @@
         <h2 class="section-title">Zašto nas odabrati?</h2>
         <p class="about-text">Bilo da trebate novu instalaciju ili hitan popravak roleta u Petrinji i Sisku, osiguravamo brzo i učinkovito rješenje isti dan.</p>
         <div class="features">
-            <div class="feature-box"><h3>Bogato iskustvo</h3><p>Iskustvo i stručnost u svim vrstama popravaka sjenila.</p></div>
+            <div class="feature-box"><h3>Bogato iskustvo</h3><p>Iskustvo i stručnost u svim vrstama popravaka roleta.</p></div>
             <div class="feature-box"><h3>Hitne intervencije</h3><p>Brza reakcija i dolazak u roku od nekoliko sati.</p></div>
             <div class="feature-box"><h3>90% popravaka odmah</h3><p>Kvarove rješavamo i popravljamo odmah po pozivu na terenu.</p></div>
-            <div class="feature-box"><h3>Preko osiguranja</h3><p>Nudimo popravak roleta preko osiguranja i rješavamo papire.</p></div>
+            <div class="feature-box"><h3>Preko osiguranja</h3><p>Nudimo popravak roleta preko osiguranja.</p></div>
         </div>
     </section>
 
@@ -247,7 +275,7 @@
             <h2 class="section-title">Naše Usluge</h2>
             <div class="services">
                 <div class="service-card">
-                    <img src="slike/palete-za-rolete.png.png" alt="Ugradnja novih PVC i aluminijskih roleta" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                    <img src="slike/palete-za-rolete.png" loading="lazy" alt="Ugradnja novih PVC i aluminijskih roleta" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
                     <div class="service-content">
                         <h3>Ugradnja na postojeću stolariju</h3>
                         <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Profesionalna ugradnja i prilagodba roleta na vaše postojeće prozore i vrata:</p>
@@ -261,9 +289,9 @@
                 </div>
 
                 <div class="service-card">
-                    <img src="slike/trakaste-zavjese.png.png" alt="Unutarnja sjenila i ugradnja komarnika u Sisku i Petrinji" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                    <img src="slike/trakaste-zavjese.png" loading="lazy" alt="Ugradnja trakastih zavjesa u Sisku i Petrinji" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
                     <div class="service-content"> 
-                        <h3>Unutarnja sjenila i zaštita od kukaca</h3>
+                        <h3>Zaštita od kukaca</h3>
                         <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Moderna rješenja za regulaciju svjetlosti i obranu od komaraca:</p>
                         <ul style="list-style-type: '✓ '; margin-left: 15px;">
                             <li style="margin-bottom: 10px;"><strong>Trakaste zavjese</strong> – elegantne zavjese u 15 boja</li>
@@ -274,10 +302,10 @@
                 </div>
 
                 <div class="service-card">
-                    <img src="slike/rolete-prije-poslije.png.png" alt="Popravci roleta, zamjena gurtni i kućne intervencije" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                    <img src="slike/rolete-prije-poslije.png" loading="lazy" alt="Popravci roleta, zamjena gurtni i kućne intervencije" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
                     <div class="service-content">
                         <h3>Popravci i kućne intervencije</h3>
-                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Brzo rješavanje kvarova na sjenilima i ostali sitni popravci u kućanstvu:</p>
+                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Brzo rješavanje kvarova na roletama i ostali sitni popravci u kućanstvu:</p>
                         <ul style="list-style-type: '✓ '; margin-left: 15px;">
                             <li style="margin-bottom: 10px;"><strong>Popravljamo i mijenjamo stare rolete</strong> – vraćamo punu funkcionalnost</li>
                             <li style="margin-bottom: 10px;"><strong>Kućni popravci</strong> – ugradnja lustera, zamjena utičnica, prekidača i slično</li>
@@ -291,10 +319,10 @@
     <section id="galerija" class="container">
         <h2 class="section-title">Galerija naših radova</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="slike/rolete-na-balkonu.png.png" alt="Zatvaranje balkona PVC roletama u okolici Siska"></div>
-            <div class="gallery-item"><img src="slike/rolete-na-terasi.png.png" alt="Popravak plastičnih roleta i zamjena automata Sisak"></div>
-            <div class="gallery-item"><img src="slike/smede-rolete.png.png" alt="Ugradnja novih aluminijskih roleta Petrinja"></div>
-            <div class="gallery-item"><img src="slike/komarnik-na-vratima.png.png" alt="Montaža rolo komarnika na PVC prozor u okolici Siska"></div>
+            <div class="gallery-item"><img src="slike/rolete-na-balkonu.png" loading="lazy" alt="Zatvaranje balkona PVC roletama u okolici Siska"></div>
+            <div class="gallery-item"><img src="slike/rolete-na-terasi.png" loading="lazy" alt="Popravak plastičnih roleta i zamjena automata Sisak"></div>
+            <div class="gallery-item"><img src="slike/smede-rolete.png" loading="lazy" alt="Ugradnja novih aluminijskih roleta Petrinja"></div>
+            <div class="gallery-item"><img src="slike/komarnik-na-vratima.png" loading="lazy" alt="Montaža rolo komarnika na PVC prozor u okolici Siska"></div>
         </div>
     </section>
 
@@ -389,10 +417,10 @@
                 reviewsData = Object.values(data);
                 reviewsData.reverse();
             } else {
+                // TVOJE IZMIJENJENE DVIJE POČETNE RECENZIJE
                 reviewsData = [
                     { name: "Stjepan K. (Sisak)", rating: 5, text: "Brza intervencija, puknuta gurtna zamijenjena u roku od pola sata. Svaka preporuka za obrt!" },
-                    { name: "Marija J. (Petrinja)", rating: 5, text: "Gospodin je izuzetno profesionalan. Ugradio nam je komarnike i rolete na cijelu kuću, cijena fer i korektna." },
-                    { name: "Alen M. (Mošćenica)", rating: 5, text: "Odlična usluga popravka roleta preko osiguranja. Sve riješeno brzo i bez kompliciranja." }
+                    { name: "Marija J. (Petrinja)", rating: 5, text: "Gospodin je izuzetno profesionalan. Ugradio nam je komarnike i rolete na cijelu kuću, cijena fer i korektna." }
                 ];
             }
 
