@@ -26,7 +26,7 @@
 
         :root {
             --primarna: #1a365d;
-            --akcent: #ff0000;
+            --akcent: #B30000; /* Promijenjeno u tvoju tamnocrvenu boju */
             --svijetla: #f3f4f6;
             --tamna: #1f2937;
         }
@@ -38,7 +38,7 @@
             padding: 0 20px;
         }
 
-        /* Navigacija */
+        /* Navigacija i Popravak Logotipa */
         header {
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -58,6 +58,7 @@
             font-size: 22px;
             font-weight: bold;
             color: var(--primarna);
+            object-fit: contain; /* Osiguranje protiv širenja */
         }
 
         .logo span { color: var(--akcent); }
@@ -72,24 +73,24 @@
         }
         nav ul li a:hover { color: var(--akcent); }
 
-/* Glavna boja gumba s tamnijom crvenom za bolji kontrast */
-.btn {
-    background-color: #B30000; /* Nova tamnocrvena boja */
-    color: #ffffff; /* Bijeli tekst ostaje */
-    padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.3s ease;
-}
+        /* Glavna boja gumba s tamnijom crvenom i bijelim tekstom */
+        .btn {
+            background-color: #B30000; 
+            color: #ffffff; /* Bijeli tekst ostaje */
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
 
-/* Boja kad se mišem prijeđe preko gumba (još malo tamnija) */
-.btn:hover {
-    background-color: #8c0000;
-    color: #ffffff;
-}
+        /* Hover efekt gumba */
+        .btn:hover {
+            background-color: #8c0000; 
+            color: #ffffff;
+        }
 
         section { padding: 80px 0; }
         .section-title { text-align: center; font-size: 32px; color: var(--primarna); margin-bottom: 40px; position: relative; }
@@ -184,7 +185,7 @@
         .working-hours-list { list-style: none; }
         .working-hours-list li { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px dashed #eee; }
 
-        footer { background-color: var(--tamna); color: white; text-align: center; padding: 25px 0; font-size: 14px; }
+        footer { background-color: var(--tamna); color: white; text-align: center; padding: 25px 0; font-size: 14px; border-top: 3px solid var(--akcent); }
 
         /* Mobiteli */
         @media (max-width: 768px) {
@@ -234,7 +235,8 @@
 
     <section style="padding: 60px 0; background-color: #ffffff; text-align: center;">
         <div class="container">
-<img src="slike/logo.png.png" width="300" height="300" alt="Roletarski servis D.J. Logo" style="max-width: 100%; height: auto; max-height: 250px; display: block; margin: 0 auto 20px auto;">
+            <!-- POPRAVLJENO: Dodana object-fit contain zaštita da se logo ne rasteže -->
+            <img src="slike/logo.png.png" width="300" height="300" alt="Roletarski servis D.J. Logo" style="max-width: 100%; height: auto; max-height: 250px; object-fit: contain; display: block; margin: 0 auto 20px auto;">
             
             <div style="max-width: 800px; margin: 0 auto;">
                 <h1 style="font-size: 36px; color: var(--primarna); margin-bottom: 20px; font-weight: bold;">Postavljanje i popravak roleta ili komarnika – Petrinja, Sisak i okolica</h1>
@@ -275,7 +277,6 @@
             <h2 class="section-title">Naše Usluge</h2>
             <div class="services">
                 <div class="service-card">
-                    <!-- POPRAVLJENO: Dodane fiksne HTML dimenzije -->
                     <img src="slike/palete-za-rolete.png.png" width="400" height="200" loading="lazy" alt="Ugradnja novih PVC i aluminijskih roleta" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
                     <div class="service-content">
                         <h3>Ugradnja na postojeću stolariju</h3>
@@ -290,7 +291,6 @@
                 </div>
 
                 <div class="service-card">
-                    <!-- POPRAVLJENO: Dodane fiksne HTML dimenzije -->
                     <img src="slike/trakaste-zavjese.png.png" width="400" height="200" loading="lazy" alt="Ugradnja trakastih zavjesa u Sisku i Petrinji" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
                     <div class="service-content"> 
                         <h3>Zaštita od kukaca</h3>
@@ -304,7 +304,6 @@
                 </div>
 
                 <div class="service-card">
-                    <!-- POPRAVLJENO: Dodane fiksne HTML dimenzije -->
                     <img src="slike/rolete-prije-poslije.png.png" width="400" height="200" loading="lazy" alt="Popravci roleta, zamjena gurtni i kućne intervencije" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
                     <div class="service-content">
                         <h3>Popravci i kućne intervencije</h3>
@@ -322,7 +321,6 @@
     <section id="galerija" class="container">
         <h2 class="section-title">Galerija naših radova</h2>
         <div class="gallery-grid">
-            <!-- POPRAVLJENO: Sve slike u galeriji sada imaju definirane HTML dimenzije za optimizaciju -->
             <div class="gallery-item"><img src="slike/rolete-na-balkonu.png.png" width="300" height="220" loading="lazy" alt="Zatvaranje balkona PVC roletama u okolici Siska"></div>
             <div class="gallery-item"><img src="slike/rolete-na-terasi.png.png" width="300" height="220" loading="lazy" alt="Popravak plastičnih roleta i zamjena automata Sisak"></div>
             <div class="gallery-item"><img src="slike/smede-rolete.png.png" width="300" height="220" loading="lazy" alt="Ugradnja novih aluminijskih roleta Petrinja"></div>
