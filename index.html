@@ -233,7 +233,8 @@
 
     <section style="padding: 60px 0; background-color: #ffffff; text-align: center;">
         <div class="container">
-            <img src="slike/logo.png.png" alt="Roletarski servis D.J. Logo" style="max-width: 100%; height: auto; max-height: 250px; display: block; margin: 0 auto 30px auto;">
+
+<img src="slike/logo.png.png" width="350" height="250" alt="Roletarski servis D.J. Logo" style="max-width: 100%; height: auto; max-height: 250px; object-fit: contain; display: block; margin: 0 auto 30px auto;">
             
             <div style="max-width: 800px; margin: 0 auto;">
                 <h1 style="font-size: 36px; color: var(--primarna); margin-bottom: 20px; font-weight: bold;">Postavljanje i popravak roleta ili komarnika – Petrinja, Sisak i okolica</h1>
@@ -274,7 +275,8 @@
             <h2 class="section-title">Naše Usluge</h2>
             <div class="services">
                 <div class="service-card">
-                    <img src="slike/palete-za-rolete.png.png" loading="lazy" alt="Ugradnja novih PVC i aluminijskih roleta" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                    <!-- POPRAVLJENO: Dodane fiksne HTML dimenzije -->
+                    <img src="slike/palete-za-rolete.png.png" width="400" height="200" loading="lazy" alt="Ugradnja novih PVC i aluminijskih roleta" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
                     <div class="service-content">
                         <h3>Ugradnja na postojeću stolariju</h3>
                         <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Profesionalna ugradnja i prilagodba roleta na vaše postojeće prozore i vrata:</p>
@@ -288,7 +290,8 @@
                 </div>
 
                 <div class="service-card">
-                    <img src="slike/trakaste-zavjese.png.png" loading="lazy" alt="Ugradnja trakastih zavjesa u Sisku i Petrinji" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                    <!-- POPRAVLJENO: Dodane fiksne HTML dimenzije -->
+                    <img src="slike/trakaste-zavjese.png.png" width="400" height="200" loading="lazy" alt="Ugradnja trakastih zavjesa u Sisku i Petrinji" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
                     <div class="service-content"> 
                         <h3>Zaštita od kukaca</h3>
                         <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Moderna rješenja za regulaciju svjetlosti i obranu od komaraca:</p>
@@ -301,7 +304,8 @@
                 </div>
 
                 <div class="service-card">
-                    <img src="slike/rolete-prije-poslije.png.png" loading="lazy" alt="Popravci roleta, zamjena gurtni i kućne intervencije" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                    <!-- POPRAVLJENO: Dodane fiksne HTML dimenzije -->
+                    <img src="slike/rolete-prije-poslije.png.png" width="400" height="200" loading="lazy" alt="Popravci roleta, zamjena gurtni i kućne intervencije" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
                     <div class="service-content">
                         <h3>Popravci i kućne intervencije</h3>
                         <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Brzo rješavanje kvarova na roletama i ostali sitni popravci u kućanstvu:</p>
@@ -318,10 +322,11 @@
     <section id="galerija" class="container">
         <h2 class="section-title">Galerija naših radova</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="slike/rolete-na-balkonu.png.png" loading="lazy" alt="Zatvaranje balkona PVC roletama u okolici Siska"></div>
-            <div class="gallery-item"><img src="slike/rolete-na-terasi.png.png" loading="lazy" alt="Popravak plastičnih roleta i zamjena automata Sisak"></div>
-            <div class="gallery-item"><img src="slike/smede-rolete.png.png" loading="lazy" alt="Ugradnja novih aluminijskih roleta Petrinja"></div>
-            <div class="gallery-item"><img src="slike/komarnik-na-vratima.png.png" loading="lazy" alt="Montaža rolo komarnika na PVC prozor u okolici Siska"></div>
+            <!-- POPRAVLJENO: Sve slike u galeriji sada imaju definirane HTML dimenzije za optimizaciju -->
+            <div class="gallery-item"><img src="slike/rolete-na-balkonu.png.png" width="300" height="220" loading="lazy" alt="Zatvaranje balkona PVC roletama u okolici Siska"></div>
+            <div class="gallery-item"><img src="slike/rolete-na-terasi.png.png" width="300" height="220" loading="lazy" alt="Popravak plastičnih roleta i zamjena automata Sisak"></div>
+            <div class="gallery-item"><img src="slike/smede-rolete.png.png" width="300" height="220" loading="lazy" alt="Ugradnja novih aluminijskih roleta Petrinja"></div>
+            <div class="gallery-item"><img src="slike/komarnik-na-vratima.png.png" width="300" height="220" loading="lazy" alt="Montaža rolo komarnika na PVC prozor u okolici Siska"></div>
         </div>
     </section>
 
@@ -415,7 +420,6 @@
                 reviewsData = Object.values(data);
                 reviewsData.reverse();
             } else {
-                // TVOJE IZMIJENJENE DVIJE POČETNE RECENZIJE
                 reviewsData = [
                     { name: "Stjepan K. (Sisak)", rating: 5, text: "Brza intervencija, puknuta gurtna zamijenjena u roku od pola sata. Svaka preporuka za obrt!" },
                     { name: "Marija J. (Petrinja)", rating: 5, text: "Gospodin je izuzetno profesionalan. Ugradio nam je komarnike i rolete na cijelu kuću, cijena fer i korektna." }
