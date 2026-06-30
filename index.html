@@ -72,23 +72,23 @@
         }
         nav ul li a:hover { color: var(--akcent); }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--akcent);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: transform 0.2s, background-color 0.3s;
-            border: none;
-            cursor: pointer;
-        }
+/* Glavna boja gumba */
+.btn {
+    background-color: #EB0000; /* Nova crvena boja sa slike */
+    color: #ffffff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
 
-        .btn:hover {
-            background-color: #cc0000;
-            transform: translateY(-2px);
-        }
+/* Boja kad se mišem prijeđe preko gumba (mrvicu tamnija crvena) */
+.btn:hover {
+    background-color: #c20000; 
+}
 
         section { padding: 80px 0; }
         .section-title { text-align: center; font-size: 32px; color: var(--primarna); margin-bottom: 40px; position: relative; }
