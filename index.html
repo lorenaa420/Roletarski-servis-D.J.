@@ -13,7 +13,7 @@
     <meta name="theme-color" content="#1a365d">
 
     <!-- Google Favicon (Sličica u rezultatima pretrage i tabu) -->
-    <link rel="icon" type="image/png" sizes="144x144" href="slike/favicon.png">    
+    <link rel="icon" type="image/png" sizes="144x144" href="slike/favicon.png">
 
     <!-- Performanse i Brzina (Preconnect) -->
     <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
@@ -75,17 +75,22 @@
         }
       ],
       "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Sisačko-moslavačka županija" },
+        { "@type": "AdministrativeArea", "name": "Zagrebačka županija" },
         { "@type": "AdministrativeArea", "name": "Sisak" },
         { "@type": "AdministrativeArea", "name": "Petrinja" },
         { "@type": "AdministrativeArea", "name": "Mošćenica" },
+        { "@type": "AdministrativeArea", "name": "Velika Gorica" },
+        { "@type": "AdministrativeArea", "name": "Ivanić-Grad" },
+        { "@type": "AdministrativeArea", "name": "Dugo Selo" },
+        { "@type": "AdministrativeArea", "name": "Samobor" },
+        { "@type": "AdministrativeArea", "name": "Zaprešić" },
         { "@type": "AdministrativeArea", "name": "Glina" },
-        { "@type": "AdministrativeArea", "name": "Hrvatska Kostajnica" },
-        { "@type": "AdministrativeArea", "name": "Popovača" },
         { "@type": "AdministrativeArea", "name": "Kutina" },
-        { "@type": "AdministrativeArea", "name": "Sunja" },
+        { "@type": "AdministrativeArea", "name": "Popovača" },
         { "@type": "AdministrativeArea", "name": "Lekenik" }
       ],
-      "description": "Profesionalni popravak roleta, ugradnja novih PVC i ALU roleta, komarnika po mjeri, venecijanera i trakastih zavjesa na području Siska i Petrinje."
+      "description": "Profesionalni popravak roleta, ugradnja novih PVC i ALU roleta, komarnika po mjeri, venecijanera i trakastih zavjesa na području Sisačko-moslavačke i Zagrebačke županije."
     }
     </script>
 
@@ -163,7 +168,7 @@
 
         :root {
             --primarna: #1a365d;
-            --akcent: #B30000; /* Promijenjeno u tvoju tamnocrvenu boju */
+            --akcent: #B30000;
             --svijetla: #f3f4f6;
             --tamna: #1f2937;
         }
@@ -175,7 +180,7 @@
             padding: 0 20px;
         }
 
-        /* Navigacija i Popravak Logotipa */
+        /* Navigacija */
         header {
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -195,7 +200,7 @@
             font-size: 22px;
             font-weight: bold;
             color: var(--primarna);
-            object-fit: contain; /* Osiguranje protiv širenja */
+            object-fit: contain;
         }
 
         .logo span { color: var(--akcent); }
@@ -210,10 +215,9 @@
         }
         nav ul li a:hover { color: var(--akcent); }
 
-        /* Glavna boja gumba s tamnijom crvenom i bijelim tekstom */
         .btn {
             background-color: #B30000; 
-            color: #ffffff; /* Bijeli tekst ostaje */
+            color: #ffffff;
             padding: 12px 25px;
             border: none;
             border-radius: 5px;
@@ -223,7 +227,6 @@
             transition: background 0.3s ease;
         }
 
-        /* Hover efekt gumba */
         .btn:hover {
             background-color: #8c0000; 
             color: #ffffff;
@@ -233,7 +236,6 @@
         .section-title { text-align: center; font-size: 32px; color: var(--primarna); margin-bottom: 40px; position: relative; }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--akcent); margin: 10px auto 0 auto; border-radius: 2px; }
 
-        /* Istaknuta klijentova poruka */
         .promo-box {
             background-color: #fff5f5;
             border-left: 5px solid var(--akcent);
@@ -322,6 +324,43 @@
         .working-hours-list { list-style: none; }
         .working-hours-list li { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px dashed #eee; }
 
+        /* Gumb za povratak na vrh */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--akcent);
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #backToTop.show {
+            opacity: 0.85;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        #backToTop:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
         footer { background-color: var(--tamna); color: white; text-align: center; padding: 25px 0; font-size: 14px; border-top: 3px solid var(--akcent); }
 
         /* Mobiteli */
@@ -347,6 +386,13 @@
             
             nav ul li { 
                 margin: 8px 0; 
+            }
+
+            /* Popravak za radno vrijeme na mobitelima */
+            .working-hours-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 8px 0;
             }
 
             .contact-layout, .reviews-layout { grid-template-columns: 1fr; }
@@ -378,7 +424,6 @@
                 <img src="slike/logo.png.png" width="300" height="300" alt="Roletarski servis D.J. Logo" style="max-width: 100%; height: auto; max-height: 250px; object-fit: contain; display: block; margin: 0 auto 20px auto;">
                 
                 <div style="max-width: 800px; margin: 0 auto;">
-                    <!-- OPTIMIZIRAN H1: Zamijenjeno 'ili' s 'i' i posloženo prema pretragama -->
                     <h1 style="font-size: 36px; color: var(--primarna); margin-bottom: 20px; font-weight: bold;">Popravak i ugradnja roleta i komarnika u Sisku, Petrinji i okolici</h1>
                     
                     <p style="font-size: 19px; color: #444; margin-bottom: 25px; line-height: 1.6; font-weight: 500;">
@@ -456,7 +501,6 @@
                     </div>
                 </div>
                 
-                <!-- SEO DODATAK TEKSTA (Prirodno ubačene ključne riječi bez promjene stila) -->
                 <div style="max-width: 1000px; margin: 40px auto 0 auto; padding-top: 20px; font-size: 15px; color: #555; border-top: 1px solid #ddd; text-align: justify;">
                     <p>Naš roletarski servis koristi isključivo provjerene i dugotrajne materijale za PVC rolete i aluminijske rolete s vrhunskom izolacijom. Redovito servisiranje i pravovremena zamjena gurtne ili automata sprječava veća oštećenja na mehanizmu rolete. Komarnici po mjeri idealan su odabir za mirno ljeto bez nametnika, a ugrađujemo ih brzo i pedantno na sve tipove prozorskih okvira.</p>
                 </div>
@@ -466,11 +510,15 @@
         <!-- NOVI SEO ODJELJAK: Područje rada za jačanje lokalnog SEO pretraživanja -->
         <section id="podrucje-rada" class="container">
             <h2 class="section-title">Područje rada i dostupnost</h2>
-            <p class="about-text" style="margin-bottom: 20px;">Glavno sjedište našeg obrta nalazi se u Mošćenici, a usluge izmjere, ugradnje i popravaka redovito vršimo na širem području Sisačko-moslavačke županije.</p>
+            <p class="about-text" style="margin-bottom: 20px;">Glavno sjedište našeg obrta nalazi se u Mošćenici, a usluge izmjere, ugradnje i popravaka redovito vršimo na području dvije županije.</p>
             <div style="max-width: 800px; margin: 0 auto; background: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center;">
                 <p style="font-weight: 600; color: var(--primarna); margin-bottom: 10px;">Dolazimo na Vašu lokaciju:</p>
                 <p style="color: #555; font-size: 16px; line-height: 1.8;">
-                    <strong>Petrinja • Sisak • Mošćenica • Glina • Hrvatska Kostajnica • Popovača • Kutina • Sunja • Lekenik • Zagreb • Velika Gorica • Sesvete • Dugo Selo • Karlovac</strong> te ostala mjesta po izravnom dogovoru. Nazovite nas i provjerite dostupnost za Vaše mjesto.
+                    <strong>CIJELA SISAČKO-MOSLAVAČKA ŽUPANIJA</strong><br>
+                    (Sisak, Petrinja, Mošćenica, Kutina, Glina, Popovača, Lekenik, Sunja...)<br><br>
+                    <strong>CIJELA ZAGREBAČKA ŽUPANIJA</strong><br>
+                    (Velika Gorica, Ivanić-Grad, Dugo Selo, Samobor, Zaprešić, Jastrebarsko...)<br><br>
+                    Obratite nam se s povjerenjem – izlazak na teren i brza ugradnja osigurani su na cijelom navedenom području!
                 </p>
             </div>
         </section>
@@ -520,25 +568,26 @@
             </div>
         </section>
 
-        <!-- NOVI SEO ODJELJAK: FAQ sekcija za povlačenje Rich Snippets zvjezdica i pitanja na Googleu -->
         <section id="faq" class="container" style="background-color: #ffffff;">
-            <h2 class="section-title">Česta pitanja o našim uslugama</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
-                    <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Koliko košta popravak rolete i zamjena gurtne?</h3>
-                    <p style="color: #555; font-size: 15px;">Cijena servisa ovisi o točnom kvaru (puknuta traka/gurtna, neispravan automat, zaglavljene lamele). Većinu uobičajenih popravaka rješavamo brzo, a točan trošak definiramo prije samog izvođenja rada.</p>
-                </div>
-                <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
-                    <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Dolazite li na popravak roleta isti dan?</h3>
-                    <p style="color: #555; font-size: 15px;">Za sve klijente na području Siska, Petrinje i bliže okolice nastojimo organizirati dolazak i popravak unutar istog dana od Vašeg poziva, ovisno o popunjenosti naših dnevnih kapaciteta.</p>
-                </div>
-                <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
-                    <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Ugrađujete li komarnike na postojeće prozore?</h3>
-                    <p style="color: #555; font-size: 15px;">Da. Izrađujemo i ugrađujemo rolo, fiksne i plise komarnike po mjeri za sve vrste već montirane stolarije (drvo, PVC ili aluminij), čime osiguravamo trajnu zaštitu od kukaca.</p>
-                </div>
-                <div style="margin-bottom: 5px;">
-                    <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Nudite li popravak roleta preko stambenog osiguranja?</h3>
-                    <p style="color: #555; font-size: 15px;">Da, sve popravke nastale uslijed oštećenja ili nepogoda možemo odraditi uz izdavanje računa i potrebne prateće dokumentacije kako biste jednostavno izvršili povrat sredstava preko osiguravajuće kuće.</p>
+            <div class="container">
+                <h2 class="section-title">Česta pitanja o našim uslugama</h2>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                        <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Koliko košta popravak rolete i zamjena gurtne?</h3>
+                        <p style="color: #555; font-size: 15px;">Cijena servisa ovisi o točnom kvaru (puknuta traka/gurtna, neispravan automat, zaglavljene lamele). Većinu uobičajenih popravaka rješavamo brzo, a točan trošak definiramo prije samog izvođenja rada.</p>
+                    </div>
+                    <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                        <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Dolazite li na popravak roleta isti dan?</h3>
+                        <p style="color: #555; font-size: 15px;">Za sve klijente na području Siska, Petrinje i bliže okolice nastojimo organizirati dolazak i popravak unutar istog dana od Vašeg poziva, ovisno o popunjenosti naših dnevnih kapaciteta.</p>
+                    </div>
+                    <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                        <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Ugrađujete li komarnike na postojeće prozore?</h3>
+                        <p style="color: #555; font-size: 15px;">Da. Izrađujemo i ugrađujemo rolo, fiksne i plise komarnike po mjeri za sve vrste već montirane stolarije (drvo, PVC ili aluminij), čime osiguravamo trajnu zaštitu od kukaca.</p>
+                    </div>
+                    <div style="margin-bottom: 5px;">
+                        <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Nudite li popravak roleta preko stambenog osiguranja?</h3>
+                        <p style="color: #555; font-size: 15px;">Da, sve popravke nastale uslijed oštećenja ili nepogoda možemo odraditi uz izdavanje računa i potrebne prateće dokumentacije kako biste jednostavno izvršili povrat sredstava preko osiguravajuće kuće.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -551,7 +600,7 @@
                         <h3>Kontakt podaci</h3>
                         <div class="info-item"><strong>Adresa:</strong> Vatroslava Lisinskog 47, 44253, Mošćenica</div>
                         <div class="info-item"><strong>Telefon:</strong> <a href="tel:0917857855" style="color: inherit; font-weight: bold;">091 / 785 - 7855</a></div>
-                        <div class="info-item"><strong>Područje rada:</strong> Petrinja, Sisak, Mošćenica i okolica, po dogovoru i šire</div>
+                        <div class="info-item"><strong>Područje rada:</strong> Cijela Sisačko-moslavačka i Zagrebačka županija</div>
                     </div>
                     <div class="info-box">
                         <h3>Radno vrijeme</h3>
@@ -568,6 +617,9 @@
     <footer>
         <div class="container"><p>&copy; 2026 Roletarski servis D.J. - Sva prava pridržana.</p></div>
     </footer>
+
+    <!-- Gumb za povratak na vrh -->
+    <button id="backToTop" aria-label="Povratak na vrh">▲</button>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -650,6 +702,24 @@
             }).catch((error) => {
                 console.error("Greška:", error);
                 alert("Došlo je do greške. Molimo pokušajte ponovno.");
+            });
+        });
+
+        // Logika za gumb "Povratak na vrh"
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
