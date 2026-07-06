@@ -159,26 +159,27 @@
     border-radius: 50%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border: 1px solid #f1f5f9;
-    
-    /* Veličina za MOBITEL (početna) */
     width: 200px; 
     height: 200px; 
     margin: 0 auto;
-    overflow: hidden; 
+    /* UKLONI overflow: hidden; - to je ono što ti reže rubove slike! */
 }
 
 .logo-wrapper img {
-    width: 90%;      /* Povećao sam sa 80% na 90% da logo ispuni prostor */
-    height: 90%; 
-    object-fit: contain; /* Ovo će sada pravilno smjestiti logo bez rezanja */
+    max-width: 80%; /* Logo neće biti prevelik */
+    max-height: 80%; /* Logo neće biti prevelik */
+    width: auto;     /* Ovo dozvoljava slici da zadrži svoj prirodni oblik */
+    height: auto;    /* Ovo dozvoljava slici da zadrži svoj prirodni oblik */
+    object-fit: contain;
 }
 
-/* Veličina za RAČUNALO (veći krug) */
+/* Veličina za RAČUNALO */
 @media (min-width: 769px) {
     .logo-wrapper {
-        width: 350px; /* Ovdje povećaj broj ako želiš još veći krug */
+        width: 350px;
         height: 350px;
     }
+}
 }
         /* Reset i osnovni stilovi */
         * {
