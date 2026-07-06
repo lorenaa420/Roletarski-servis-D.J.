@@ -151,39 +151,6 @@
     </script>
     
     <style>
-.logo-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border: 1px solid #f1f5f9;
-    
-    /* Fiksna veličina za MOBITEL */
-    width: 300px; 
-    height: 300px; 
-    margin: 0 auto;
-    /* Maknuli smo overflow: hidden da se ništa ne reže */
-}
-
-.logo-wrapper img {
-    /* OVO JE KLJUČNO: */
-    width: 80%;       /* Slika popunjava cijeli prostor */
-    height: 80%;      /* Slika popunjava cijeli prostor */
-    object-fit: contain; /* Ovo osigurava da se cijeli logo vidi unutar kruga, bez rastezanja */
-    padding: 20px;     /* Ovo stvara "zračni prostor" unutar kruga da logo ne dodiruje rubove */
-    box-sizing: border-box; /* Osigurava da padding ne poveća krug */
-}
-
-/* Veličina za RAČUNALO */
-@media (min-width: 769px) {
-    .logo-wrapper {
-        width: 400px; 
-        height: 400px;
-    }
-}
-}
         /* Reset i osnovni stilovi */
         * {
             margin: 0;
@@ -230,7 +197,7 @@
         }
 
         .logo {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
             color: var(--primarna);
             object-fit: contain;
@@ -357,446 +324,351 @@
         .working-hours-list { list-style: none; }
         .working-hours-list li { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px dashed #eee; }
 
-        /* Gumb za povratak na vrh */
-        #backToTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 45px;
-            height: 45px;
-            background-color: var(--akcent);
-            color: #ffffff;
-            border: none;
-            border-radius: 50%;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            -webkit-tap-highlight-color: transparent;
-        }
 
-        #backToTop.show {
-            opacity: 0.85;
-            visibility: visible;
-            pointer-events: auto;
-        }
-
-        #backToTop:hover {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        footer { background-color: var(--tamna); color: white; text-align: center; padding: 25px 0; font-size: 14px; border-top: 3px solid var(--akcent); }
-
-        /* Mobiteli */
-        @media (max-width: 768px) {
-            header {
-                position: static !important;
-                box-shadow: none;
-            }
-
-            nav { 
-                flex-direction: column; 
-                padding: 15px 0;
-                background-color: #ffffff;
-            }
-            
-            nav ul { 
-                margin-top: 15px; 
-                flex-direction: column; 
-                align-items: center;
-                width: 100%;
-                background-color: #ffffff;
-            }
-            
-            nav ul li { 
-                margin: 8px 0; 
-            }
-
-            /* Popravak za radno vrijeme na mobitelima */
-            .working-hours-list li {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 8px 0;
-            }
-
-            .contact-layout, .reviews-layout { grid-template-columns: 1fr; }
-        }
-		/* ==========================================================================
-   MANDATORNI MOBILNI RESPONSIVE DIZAJN (Za ekrane manje od 768px)
-   ========================================================================== */
-@media (max-width: 768px) {
-    /* Resetiramo gridove u jedan stupac */
-    section div[style*="display: grid"],
-    .container[style*="display: grid"],
-    .services,
-    .gallery-grid,
-    .reviews-layout,
-    .contact-layout {
-        grid-template-columns: 1fr !important;
-        gap: 25px !important;
-    }
-
-    /* Hero sekcija (Tekst pa Logo ispod) */
-    section:first-of-type .container {
-        display: flex !important;
-        flex-direction: column !important;
-        text-align: center !important;
-    }
-    section:first-of-type .container div { text-align: center !important; }
-    h1, section:first-of-type h1 { font-size: 28px !important; line-height: 1.3 !important; }
-    .section-title { font-size: 24px !important; margin-bottom: 35px !important; }
-    section:first-of-type img { width: 300px !important; height: 300px !important; margin: 0 auto; }
-    .btn { width: 100%; text-align: center; display: block; }
-
-    /* POPRAVAK KONTAKTA: Centriranje i uredan razmak na mobitelu */
-    .contact-layout .info-box {
-        text-align: center !important;
-        padding: 25px 20px !important;
-    }
-    .contact-layout .info-box h3 {
-        font-size: 20px !important;
-        margin-bottom: 15px !important;
-    }
-    .info-item {
-        font-size: 15px !important;
-        margin-bottom: 12px !important;
-    }
-    .working-hours-list li {
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        font-size: 15px !important;
-    }
-
-    /* HAMBURGER IZBORNIK: Logika i izgled */
-    header { position: sticky !important; top: 0; }
-    nav { padding: 15px 0 !important; position: relative; }
-    
-    /* Prikazujemo gumb s tri crtice */
-    .hamburger {
-        display: flex !important;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        background: none;
-        border: none;
-        padding: 5px;
-        z-index: 101;
-    }
-    .hamburger span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--primarna);
-        transition: all 0.3s ease;
-    }
-
-    /* Sakrivamo izbornik po zadanim postavkama i pretvaramo ga u padajući meni */
-    nav ul {
-        display: none !important; /* Sakriven dok se ne klikne */
-        flex-direction: column !important;
-        position: absolute;
-        top: 100%;
-        left: -20px; /* Poništavanje paddinga kontejnera */
-        width: calc(100% + 40px);
-        background-color: rgba(255, 255, 255, 0.98);
-        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-        padding: 20px 0 !important;
-        margin: 0 !important;
-        gap: 5px;
-        border-top: 1px solid #f1f5f9;
-    }
-    
-    /* Klasa koju JavaScript dodaje na klik za otvaranje */
-    nav ul.active {
-        display: flex !important;
-    }
-
-    nav ul li {
-        margin: 0 !important;
-        width: 100%;
-        text-align: center;
-    }
-    nav ul li a {
-        display: block;
-        padding: 12px 0;
-        font-size: 16px;
-        color: var(--primarna);
-    }
-    
-    /* Animacija tri crtice u "X" kada je izbornik otvoren */
-    .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    section { padding: 40px 0 !important; }
-    .promo-box { padding: 20px !important; margin: 20px auto !important; }
+		/* Hamburger gumb - vidljiv samo na mobitelu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    gap: 5px;
+    padding: 5px;
+}
+.hamburger span {
+    width: 25px; height: 3px; background: #333; border-radius: 2px;
+}
+/* Animacija za hamburger linije */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    gap: 5px;
+    padding: 10px;
+    transition: all 0.3s ease;
 }
 
-/* Osiguravamo da je gumb na desktopu sakriven */
-.hamburger { display: none; }
+/* Osnovno stanje linija */
+.hamburger span {
+    width: 25px; height: 3px; background: #1a365d; border-radius: 2px;
+    transition: all 0.3s ease;
+}
 
+/* Kada je gumb aktivan (X izgled) */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Mobiteli */
+@media (max-width: 768px) {
+    /* 1. Header fiksiran na vrhu */
+header {
+    background-color: rgba(255, 255, 255); /* Bijela boja s 90% neprozirnosti */
+    backdrop-filter: blur(5px);              /* Zamućuje sadržaj ispod headera */
+    -webkit-backdrop-filter: blur(5px);      /* Za podršku na Safariju */
+    
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+    /* 2. Padding na body da sadržaj ne bude sakriven */
+    body {
+        padding-top: 80px;
+    }
+
+    /* 3. Hamburger gumb */
+    .hamburger { 
+        display: flex !important; 
+    }
+    
+    /* 4. Navigacijska lista */
+    nav ul {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        background-color: #ffffff;
+        position: absolute; /* Da izbornik "lebdi" preko sadržaja */
+        top: 100%; /* Točno ispod headera */
+        left: 0;
+    }
+    
+    /* Klasa koju JS dodaje (otvaranje) */
+    nav ul.active { 
+        display: flex !important; 
+    }
+
+    /* 5. Ostali stilovi za mobitele */
+nav { 
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #ffffff;
+    }
+
+    .logo {
+        font-size: 18px; 
+        white-space: nowrap; /* Ovo sprječava prelazak u novi red */
+    }
+    
+    nav ul li { margin: 8px 0; }
+
+    .working-hours-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 0;
+    }
+
+    .contact-layout, .reviews-layout { grid-template-columns: 1fr; }
+}
     </style>
 </head>
 <body>
 
     <header>
         <div class="container">
-            <nav>
-                <div class="logo">Roletarski servis <span>D.J.</span></div>
-                <ul>
-                    <li><a href="#o-nama">O nama</a></li>
-                    <li><a href="#usluge">Usluge</a></li>
-                    <li><a href="#podrucje-rada">Područje rada</a></li>
-                    <li><a href="#galerija">Galerija</a></li>
-                    <li><a href="#recenzije">Recenzije</a></li>
-                    <li><a href="#faq">Česta pitanja</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
-                </ul>
-				<!-- Dodaj ovaj gumb unutar <nav> odmah ispod ili iznad <ul> sklopa -->
-<button class="hamburger" id="hamburger-toggle" aria-label="Otvori izbornik">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
-            </nav>
+<nav>
+    <div class="logo">Roletarski servis <span>D.J.</span></div>
+
+    <!-- Gumb -->
+    <button class="hamburger" id="hamburger-btn">
+        <span></span><span></span><span></span>
+    </button>
+
+    <!-- Lista mora imati id="nav-links" -->
+    <ul id="nav-links">
+        <li><a href="#o-nama">O nama</a></li>
+        <li><a href="#usluge">Usluge</a></li>
+        <li><a href="#podrucje-rada">Područje rada</a></li>
+        <li><a href="#galerija">Galerija</a></li>
+        <li><a href="#recenzije">Recenzije</a></li>
+        <li><a href="#faq">Česta pitanja</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+</nav>
         </div>
+		
     </header>
 
-   <main>
-    <!-- NOVA HERO SEKCIJA (DVA STUPCA) -->
-    <section style="padding: 80px 0; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);">
-        <div class="container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;">
-            
-            <!-- Lijeva strana: Tekst i akcija -->
-            <div style="text-align: left;">
-                <span style="color: var(--akcent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; display: block; margin-bottom: 10px;">Profesionalna usluga</span>
-                <h1 style="font-size: 42px; line-height: 1.2; color: var(--primarna); margin-bottom: 20px; font-weight: 800; letter-spacing: -1px;">
-                    Popravak i ugradnja roleta i komarnika u Sisku, Petrinji i okolici
-                </h1>
-                <p style="font-size: 18px; color: #475569; margin-bottom: 30px; line-height: 1.6;">
-                    Trebate brz servis ili ugradnju sjenila po mjeri? Osiguravamo pouzdan izlazak na teren, vrhunske materijale i rješavanje većine kvarova isti dan.
-                </p>
-                <a href="tel:0917857855" class="btn" style="font-size: 16px; padding: 16px 32px;">
-                    Nazovite odmah: 091/785-7855
-                </a>
-            </div>
-
-            <!-- Desna strana: Logotip -->
-<div style="display: flex; justify-content: center; justify-self: center;">
-    <div class="logo-wrapper">
-        <img src="slike/logo.png.png" alt="Roletarski servis D.J. Logo">
-    </div>
-</div>
+    <main>
+        <section style="padding: 60px 0; background-color: #ffffff; text-align: center;">
+            <div class="container">
+            <img src="slike/logo.png.png" fetchpriority="high" width="300" height="300" alt="Roletarski servis D.J. Logo" style="max-width: 100%; height: auto; max-height: 250px; object-fit: contain; display: block; margin: 0 auto 20px auto;">
                 
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <h1 style="font-size: 36px; color: var(--primarna); margin-bottom: 20px; font-weight: bold;">Popravak i ugradnja roleta i komarnika u Sisku, Petrinji i okolici</h1>
+                    
+                    <p style="font-size: 19px; color: #444; margin-bottom: 25px; line-height: 1.6; font-weight: 500;">
+                        Trebate profesionalan popravak ili ugradnju roleta, komarnika po mjeri, alu žaluzina (venecijanera) ili elegantnih trakastih zavjesa? Roletarski servis D.J. osigurava brze, pouzdane i pristupačne usluge. Naš brzi izlazak na teren jamči servis roleta i rješavanje kvarova isti dan.
+                    </p>
+                    
+                    <div class="promo-box">
+                        <p>
+                            <strong>Pokvarila vam se roleta, puknula je gurtna, smeta vam sunčeva svjetlost ili tražite spas od ljetnih vrućina?</strong> Napadaju vas dosadne bube i insekti pa se ne možete opustiti u vlastitom domu? Rolo ili fiksne mrežice rješavaju problem dosadnih komaraca, muha i ostalih letećih nametnika jednom zauvijek.
+                        </p>
+                        <p>
+                            Obratite nam se s punim povjerenjem. Naš obrt sa sjedištem u mjestu <strong>Mošćenica nadomak Petrinje i Siska</strong> uspješno vrši servis i popravak svih vrsta roleta, zatvaranje balkona i terasa PVC ili ALU lamelama, preciznu izmjeru te ugradnju potpuno novih roleta (unutarnja ili vanjska kutija). Nudimo i kvalitetne mrežice protiv kukaca, komarnike za prozore i vrata, unutarnje aluminijske žaluzine te trakaste zavjese za domove i poslovne prostore.
+                        </p>
+                        <p style="margin-bottom: 0; font-weight: bold; color: var(--primarna);">
+                            Za besplatne konzultacije, informativnu cijenu i dogovor termina nazovite nas pouzdano na telefon!
+                        </p>
+                    </div>
+
+                    <a href="tel:0917857855" class="btn" style="box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 10px;">Nazovite odmah: 091/785-7855</a>
+                </div>
             </div>
+        </section>
 
-        </div>
-    </section>
+        <section id="o-nama" class="container">
+            <h2 class="section-title">Zašto odabrati Roletarski servis D.J.?</h2>
+            <p class="about-text">Bilo da je u pitanju ugradnja sjenila na novu stolariju ili hitna zamjena automata i gurtne u Petrinji i Sisku, garantiramo vrhunski materijal, pedantnu izvedbu i dolazak u najkraćem roku.</p>
+            <div class="features">
+                <div class="feature-box"><h3>Bogato iskustvo</h3><p>Dugogodišnje iskustvo i tehnička stručnost u svim vrstama popravaka i ugradnji roleta i komarnika.</p></div>
+                <div class="feature-box"><h3>90% popravaka odmah</h3><p>Najčešće kvarove na mehanizmima i roletama uspješno rješavamo odmah pri prvom izlasku na teren.</p></div>
+                <div class="feature-box"><h3>Preko osiguranja</h3><p>Nudimo usluge servisa, popravaka i zamjene roleta uz dokumentaciju za naplatu preko osiguranja.</p></div>
+            </div>
+        </section>
 
-    <!-- PROMO KUTIJA I DETALJNI UVOD -->
-    <section style="padding: 40px 0 60px 0; background-color: #ffffff;">
-        <div class="container">
-            <div class="promo-box">
-                <p>
-                    <strong>Pokvarila vam se roleta, puknula je gurtna, smeta vam sunčeva svjetlost ili tražite spas od ljetnih vrućina?</strong> Napadaju vas dosadne bube i insekti pa se ne možete opustiti u vlastitom domu? Rolo ili fiksne mrežice rješavaju problem dosadnih komaraca, muha i ostalih letećih nametnika jednom zauvijek.
+        <section id="usluge" class="services-bg">
+            <div class="container">
+                <h2 class="section-title">Naše Usluge i Proizvodi</h2>
+                <div class="services">
+                    <div class="service-card">
+                        <img src="slike/palete-za-rolete.png.png" width="400" height="200" loading="lazy" alt="Ugradnja novih PVC i aluminijskih roleta" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                        <div class="service-content">
+                            <h3>Ugradnja na postojeću stolariju</h3>
+                            <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Profesionalna ugradnja i prilagodba roleta na vaše postojeće prozore i vrata:</p>
+                            <ul style="list-style-type: '✓ '; margin-left: 15px;">
+                                <li style="margin-bottom: 10px;"><strong>Plastične PVC rolete</strong> – ekonomska pristupačnost u 7 modernih boja</li>
+                                <li style="margin-bottom: 10px;"><strong>Aluminijske rolete s izolacijom</strong> – punjene poliuretanom, 12 boja</li>
+                                <li style="margin-bottom: 10px;"><strong>Rolete s vanjskom kutijom</strong> – idealno za ugradnju na već montirane prozore</li>
+                                <li style="margin-bottom: 10px;"><strong>Zatvaranje balkona s roletama</strong> – toplinska i zvučna zaštita prostora</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="slike/trakaste-zavjese.png.png" width="400" height="200" loading="lazy" alt="Ugradnja trakastih zavjesa u Sisku i Petrinji" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                        <div class="service-content"> 
+                            <h3>Zaštita od sunca i kukaca</h3>
+                            <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Moderna rješenja za regulaciju svjetlosti i obranu od komaraca:</p>
+                            <ul style="list-style-type: '✓ '; margin-left: 15px;">
+                                <li style="margin-bottom: 10px;"><strong>Trakaste zavjese</strong> – elegantno i praktično rješenje u 15 različitih boja</li>
+                                <li style="margin-bottom: 10px;"><strong>Aluminijske žaluzine (venecijaneri)</strong> – potpuna kontrola privatnosti</li>
+                                <li style="margin-bottom: 10px;"><strong>Mreže protiv kukaca (komarnici)</strong> – rolo, fiksni i plise komarnici po mjeri</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="slike/rolete-prije-poslije.png.png" width="400" height="200" loading="lazy" alt="Popravci roleta, zamjena gurtni i kućne intervencije" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
+                        <div class="service-content">
+                            <h3>Popravci i kućne intervencije</h3>
+                            <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Brzo rješavanje kvarova na roletama i ostali sitni popravci u kućanstvu:</p>
+                            <ul style="list-style-type: '✓ '; margin-left: 15px;">
+                                <li style="margin-bottom: 10px;"><strong>Servis i popravak starih roleta</strong> – zamjena pokidanih gurtni, traka i automata</li>
+                                <li style="margin-bottom: 10px;"><strong>Kućni popravci</strong> – montaža rasvjete, lustera, zamjena prekidača i utičnica</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="max-width: 1000px; margin: 40px auto 0 auto; padding-top: 20px; font-size: 15px; color: #555; border-top: 1px solid #ddd; text-align: justify;">
+                    <p>Naš roletarski servis koristi isključivo provjerene i dugotrajne materijale za PVC rolete i aluminijske rolete s vrhunskom izolacijom. Redovito servisiranje i pravovremena zamjena gurtne ili automata sprječava veća oštećenja na mehanizmu rolete. Komarnici po mjeri idealan su odabir za mirno ljeto bez nametnika, a ugrađujemo ih brzo i pedantno na sve tipove prozorskih okvira.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOVI SEO ODJELJAK: Područje rada za jačanje lokalnog SEO pretraživanja -->
+        <section id="podrucje-rada" class="container">
+            <h2 class="section-title">Područje rada i dostupnost</h2>
+            <p class="about-text" style="margin-bottom: 20px;">Glavno sjedište našeg obrta nalazi se u Mošćenici, a usluge izmjere, ugradnje i popravaka redovito vršimo na području dvije županije.</p>
+            <div style="max-width: 800px; margin: 0 auto; background: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center;">
+                <p style="font-weight: 600; color: var(--primarna); margin-bottom: 10px;">Dolazimo na Vašu lokaciju:</p>
+                <p style="color: #555; font-size: 16px; line-height: 1.8;">
+                    <strong>SISAČKO-MOSLAVAČKA ŽUPANIJA</strong><br>
+                    (Sisak, Petrinja, Mošćenica, Kutina, Glina, Popovača, Lekenik, Sunja)<br><br>
+                    <strong>ZAGREBAČKA ŽUPANIJA</strong><br>
+                    (Ivanić-Grad, Dugo Selo, istočni dio Zagreba)<br><br>
+                    Te ostala mjesta po izravnom dogovoru. Nazovite nas i provjerite dostupnost za Vaše mjesto.
                 </p>
-                <p>
-                    Obratite nam se s punim povjerenjem. Naš obrt sa sjedištem u mjestu <strong>Mošćenica nadomak Petrinje i Siska</strong> uspješno vrši servis i popravak svih vrsta roleta, zatvaranje balkona i terasa PVC ili ALU lamelama, preciznu izmjeru te ugradnju potpuno novih roleta (unutarnja ili vanjska kutija). Nudimo i kvalitetne mrežice protiv kukaca, komarnike za prozore i vrata, unutarnje aluminijske žaluzine te trakaste zavjese za domove i poslovne prostore.
-                </p>
-                <p style="margin-bottom: 0; font-weight: bold; color: var(--primarna);">
-                    Za besplatne konzultacije, informativnu cijenu i dogovor termina nazovite nas pouzdano na telefon!
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- O NAMA -->
-    <section id="o-nama" class="container">
-        <h2 class="section-title">Zašto odabrati Roletarski servis D.J.?</h2>
-        <p class="about-text">Bilo da je u pitanju ugradnja sjenila na novu stolariju ili hitna zamjena automata i gurtne u Petrinji i Sisku, garantiramo vrhunski materijal, pedantnu izvedbu i dolazak u najkraćem roku.</p>
-        <div class="features">
-            <div class="feature-box"><h3>Bogato iskustvo</h3><p>Dugogodišnje iskustvo i tehnička stručnost u svim vrstama popravaka i ugradnji roleta i komarnika.</p></div>
-            <div class="feature-box"><h3>90% popravaka odmah</h3><p>Najčešće kvarove na mehanizmima i roletama uspješno rješavamo odmah pri prvom izlasku na teren.</p></div>
-            <div class="feature-box"><h3>Preko osiguranja</h3><p>Nudimo usluge servisa, popravaka i zamjene roleta uz dokumentaciju za naplatu preko osiguranja.</p></div>
-        </div>
-    </section>
+        <section id="galerija" class="container">
+            <h2 class="section-title">Galerija naših radova</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="slike/rolete-na-balkonu.png.png" width="300" height="220" loading="lazy" alt="Zatvaranje balkona PVC roletama u okolici Siska"></div>
+                <div class="gallery-item"><img src="slike/rolete-na-terasi.png.png" width="300" height="220" loading="lazy" alt="Popravak plastičnih roleta i zamjena automata Sisak"></div>
+                <div class="gallery-item"><img src="slike/smede-rolete.png.png" width="300" height="220" loading="lazy" alt="Ugradnja novih aluminijskih roleta Petrinja"></div>
+                <div class="gallery-item"><img src="slike/komarnik-na-vratima.png.png" width="300" height="220" loading="lazy" alt="Montaža rolo komarnika na PVC prozor u okolici Siska"></div>
+            </div>
+        </section>
 
-    <!-- USLUGE -->
-    <section id="usluge" class="services-bg">
-        <div class="container">
-            <h2 class="section-title">Naše Usluge i Proizvodi</h2>
-            <div class="services">
-                <div class="service-card">
-                    <img src="slike/palete-za-rolete.png.png" width="400" height="200" loading="lazy" alt="Ugradnja novih PVC i aluminijskih roleta" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
-                    <div class="service-content">
-                        <h3>Ugradnja na postojeću stolariju</h3>
-                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Profesionalna ugradnja i prilagodba roleta na vaše postojeće prozore i vrata:</p>
-                        <ul style="list-style-type: '✓ '; margin-left: 15px;">
-                            <li style="margin-bottom: 10px;"><strong>Plastične PVC rolete</strong> – ekonomska pristupačnost u 7 modernih boja</li>
-                            <li style="margin-bottom: 10px;"><strong>Aluminijske rolete s izolacijom</strong> – punjene poliuretanom, 12 boja</li>
-                            <li style="margin-bottom: 10px;"><strong>Rolete s vanjskom kutijom</strong> – idealno za ugradnju na već montirane prozore</li>
-                            <li style="margin-bottom: 10px;"><strong>Zatvaranje balkona s roletama</strong> – toplinska i zvučna zaštita prostora</li>
+        <section id="recenzije" class="services-bg">
+            <div class="container">
+                <h2 class="section-title">Recenzije naših klijenata</h2>
+                <div class="reviews-layout">
+                    <div class="review-form">
+                        <h3 style="color: var(--primarna); margin-bottom: 15px;">Ostavite Vašu recenziju</h3>
+                        <form id="add-review-form">
+                            <div class="form-group">
+                                <label for="reviewer-name">Vaše Ime i Prezime:</label>
+                                <input type="text" id="reviewer-name" required placeholder="Npr. Ivan Horvat">
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewer-rating">Ocjena rada:</label>
+                                <select id="reviewer-rating">
+                                    <option value="5">⭐⭐⭐⭐⭐ (5/5) - Izvrsno</option>
+                                    <option value="4">⭐⭐⭐⭐ (4/5) - Vrlo dobro</option>
+                                    <option value="3">⭐⭐⭐ (3/5) - Dobro</option>
+                                    <option value="2">⭐⭐ (2/5) - Dovoljno</option>
+                                    <option value="1">⭐ (1/5) - Loše</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewer-text">Vaš komentar:</label>
+                                <textarea id="reviewer-text" rows="4" required placeholder="Napišite vaše dojmove..."></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;">Pošalji recenziju</button>
+                        </form>
+                    </div>
+
+                    <div class="reviews-display" id="reviews-display-box">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="container" style="background-color: #ffffff;">
+            <div class="container">
+                <h2 class="section-title">Česta pitanja o našim uslugama</h2>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                        <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Koliko košta popravak rolete i zamjena gurtne?</h3>
+                        <p style="color: #555; font-size: 15px;">Cijena servisa ovisi o točnom kvaru (puknuta traka/gurtna, neispravan automat, zaglavljene lamele). Većinu uobičajenih popravaka rješavamo brzo, a točan trošak definiramo prije samog izvođenja rada.</p>
+                    </div>
+                    <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                        <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Dolazite li na popravak roleta isti dan?</h3>
+                        <p style="color: #555; font-size: 15px;">Za sve klijente na području Siska, Petrinje i bliže okolice nastojimo organizirati dolazak i popravak unutar istog dana od Vašeg poziva, ovisno o popunjenosti naših dnevnih kapaciteta.</p>
+                    </div>
+                    <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                        <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Ugrađujete li komarnike na postojeće prozore?</h3>
+                        <p style="color: #555; font-size: 15px;">Da. Izrađujemo i ugrađujemo rolo, fiksne i plise komarnike po mjeri za sve vrste već montirane stolarije (drvo, PVC ili aluminij), čime osiguravamo trajnu zaštitu od kukaca.</p>
+                    </div>
+                    <div style="margin-bottom: 5px;">
+                        <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Nudite li popravak roleta preko stambenog osiguranja?</h3>
+                        <p style="color: #555; font-size: 15px;">Da, sve popravke nastale uslijed oštećenja ili nepogoda možemo odraditi uz izdavanje računa i potrebne prateće dokumentacije kako biste jednostavno izvršili povrat sredstava preko osiguravajuće kuće.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontakt" class="container" style="background-color: #ffffff;">
+            <div class="container">
+                <h2 class="section-title">Kontakt i informacije</h2>
+                <div class="contact-layout">
+                    <div class="info-box">
+                        <h3>Kontakt podaci</h3>
+                        <div class="info-item"><strong>Adresa:</strong> Vatroslava Lisinskog 47, 44253, Mošćenica</div>
+                        <div class="info-item"><strong>Telefon:</strong> <a href="tel:0917857855" style="color: inherit; font-weight: bold;">091 / 785 - 7855</a></div>
+                        <div class="info-item"><strong>Područje rada:</strong> Cijela Sisačko-moslavačka i Zagrebačka županija</div>
+                    </div>
+                    <div class="info-box">
+                        <h3>Radno vrijeme</h3>
+                        <ul class="working-hours-list">
+                            <li><span>Ponedjeljak - Petak</span> <span>08 - 16 h</span></li>
+                            <li><span>Vikend</span> <span>Zatvoreno</span></li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="service-card">
-                    <img src="slike/trakaste-zavjese.png.png" width="400" height="200" loading="lazy" alt="Ugradnja trakastih zavjesa u Sisku i Petrinji" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
-                    <div class="service-content"> 
-                        <h3>Zaštita od sunca i kukaca</h3>
-                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Moderna rješenja za regulaciju svjetlosti i obranu od komaraca:</p>
-                        <ul style="list-style-type: '✓ '; margin-left: 15px;">
-                            <li style="margin-bottom: 10px;"><strong>Trakaste zavjese</strong> – elegantno i praktično rješenje u 15 različitih boja</li>
-                            <li style="margin-bottom: 10px;"><strong>Aluminijske žaluzine (venecijaneri)</strong> – potpuna kontrola privatnosti</li>
-                            <li style="margin-bottom: 10px;"><strong>Mreže protiv kukaca (komarnici)</strong> – rolo, fiksni i plise komarnici po mjeri</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <img src="slike/rolete-prije-poslije.png.png" width="400" height="200" loading="lazy" alt="Popravci roleta, zamjena gurtni i kućne intervencije" style="width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 1px solid #eee;">
-                    <div class="service-content">
-                        <h3>Popravci i kućne intervencije</h3>
-                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Brzo rješavanje kvarova na roletama i ostali sitni popravci u kućanstvu:</p>
-                        <ul style="list-style-type: '✓ '; margin-left: 15px;">
-                            <li style="margin-bottom: 10px;"><strong>Servis i popravak starih roleta</strong> – zamjena pokidanih gurtni, traka i automata</li>
-                            <li style="margin-bottom: 10px;"><strong>Kućni popravci</strong> – montaža rasvjete, lustera, zamjena prekidača i utičnica</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
-            
-            <div style="max-width: 1000px; margin: 40px auto 0 auto; padding-top: 20px; font-size: 15px; color: #555; border-top: 1px solid #ddd; text-align: justify;">
-                <p>Naš roletarski servis koristi isključivo provjerene i dugotrajne materijale za PVC rolete i aluminijske rolete s vrhunskom izolacijom. Redovito servisiranje i pravovremena zamjena gurtne ili automata sprječava veća oštećenja na mehanizmu rolete. Komarnici po mjeri idealan su odabir za mirno ljeto bez nametnika, a ugrađujemo ih brzo i pedantno na sve tipove prozorskih okvira.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PODRUČJE RADA -->
-    <section id="podrucje-rada" class="container">
-        <h2 class="section-title">Područje rada i dostupnost</h2>
-        <p class="about-text" style="margin-bottom: 20px;">Glavno sjedište našeg obrta nalazi se u Mošćenica, a usluge izmjere, ugradnje i popravaka redovito vršimo na području dvije županije.</p>
-        <div style="max-width: 800px; margin: 0 auto; background: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center;">
-            <p style="font-weight: 600; color: var(--primarna); margin-bottom: 10px;">Dolazimo na Vašu lokaciju:</p>
-            <div style="color: #555; font-size: 16px; line-height: 1.8;">
-                <strong>SISAČKO-MOSLAVAČKA ŽUPANIJA</strong><br>
-                (Sisak, Petrinja, Mošćenica, Kutina, Glina, Popovača, Lekenik, Sunja)<br><br>
-                <strong>ZAGREBAČKA ŽUPANIJA</strong><br>
-                (Ivanić-Grad, Dugo Selo, istočni dio Zagreba)<br><br>
-                Te ostala mjesta po izravnom dogovoru. Nazovite nas i provjerite dostupnost za Vaše mjesto.
-            </div>
-        </div>
-    </section>
-
-    <!-- GALERIJA -->
-    <section id="galerija" class="container">
-        <h2 class="section-title">Galerija naših radova</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="slike/rolete-na-balkonu.png.png" width="300" height="220" loading="lazy" alt="Zatvaranje balkona PVC roletama u okolici Siska"></div>
-            <div class="gallery-item"><img src="slike/rolete-na-terasi.png.png" width="300" height="220" loading="lazy" alt="Popravak plastičnih roleta i zamjena automata Sisak"></div>
-            <div class="gallery-item"><img src="slike/smede-rolete.png.png" width="300" height="220" loading="lazy" alt="Ugradnja novih aluminijskih roleta Petrinja"></div>
-            <div class="gallery-item"><img src="slike/komarnik-na-vratima.png.png" width="300" height="220" loading="lazy" alt="Montaža rolo komarnika na PVC prozor u okolici Siska"></div>
-        </div>
-    </section>
-
-    <!-- RECENZIJE -->
-    <section id="recenzije" class="services-bg">
-        <div class="container">
-            <h2 class="section-title">Recenzije naših klijenata</h2>
-            <div class="reviews-layout">
-                <div class="review-form">
-                    <h3 style="color: var(--primarna); margin-bottom: 15px;">Ostavite Vašu recenziju</h3>
-                    <form id="add-review-form">
-                        <div class="form-group">
-                            <label for="reviewer-name">Vaše Ime i Prezime:</label>
-                            <input type="text" id="reviewer-name" required placeholder="Npr. Ivan Horvat">
-                        </div>
-                        <div class="form-group">
-                            <label for="reviewer-rating">Ocjena rada:</label>
-                            <select id="reviewer-rating">
-                                <option value="5">⭐⭐⭐⭐⭐ (5/5) - Izvrsno</option>
-                                <option value="4">⭐⭐⭐⭐ (4/5) - Vrlo dobro</option>
-                                <option value="3">⭐⭐⭐ (3/5) - Dobro</option>
-                                <option value="2">⭐⭐ (2/5) - Dovoljno</option>
-                                <option value="1">⭐ (1/5) - Loše</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="reviewer-text">Vaš komentar:</label>
-                            <textarea id="reviewer-text" rows="4" required placeholder="Napišite vaše dojmove..."></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">Pošalji recenziju</button>
-                    </form>
-                </div>
-
-                <div class="reviews-display" id="reviews-display-box">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ČESTA PITANJA (FAQ) -->
-    <section id="faq" class="container" style="background-color: #ffffff;">
-        <div class="container">
-            <h2 class="section-title">Česta pitanja o našim uslugama</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
-                    <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Koliko košta popravak rolete i zamjena gurtne?</h3>
-                    <p style="color: #555; font-size: 15px;">Cijena servisa ovisi o točnom kvaru (puknuta traka/gurtna, neispravan automat, zaglavljene lamele). Većinu uobičajenih popravaka rješavamo brzo, a točan trošak definiramo prije samog izvođenja rada.</p>
-                </div>
-                <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
-                    <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Dolazite li na popravak roleta isti dan?</h3>
-                    <p style="color: #555; font-size: 15px;">Za sve klijente na području Siska, Petrinje i bliže okolice nastojimo organizirati dolazak i popravak unutar istog dana od Vašeg poziva, ovisno o popunjenosti naših dnevnih kapaciteta.</p>
-                </div>
-                <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
-                    <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Ugrađujete li komarnike na postojeće prozore?</h3>
-                    <p style="color: #555; font-size: 15px;">Da. Izrađujemo i ugrađujemo rolo, fiksne i plise komarnike po mjeri za sve vrste već montirane stolarije (drvo, PVC ili aluminij), čime osiguravamo trajnu zaštitu od kukaca.</p>
-                </div>
-                <div style="margin-bottom: 5px;">
-                    <h3 style="color: var(--primarna); font-size: 18px; margin-bottom: 8px;">Nudite li popravak roleta preko stambenog osiguranja?</h3>
-                    <p style="color: #555; font-size: 15px;">Da, sve popravke nastale uslijed oštećenja ili nepogoda možemo odraditi uz izdavanje računa i potrebne prateće dokumentacije kako biste jednostavno izvršili povrat sredstava preko osiguravajuće kuće.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- KONTAKT -->
-    <section id="kontakt" class="container" style="background-color: #ffffff;">
-        <div class="container">
-            <h2 class="section-title">Kontakt i informacije</h2>
-            <div class="contact-layout">
-                <div class="info-box">
-                    <h3>Kontakt podaci</h3>
-                    <div class="info-item">Adresa: Vatroslava Lisinskog 47, 44253, Mošćenica</div>
-                    <div class="info-item">Telefon: <a href="tel:0917857855" style="color: inherit; font-weight: bold;">091 / 785 - 7855</a></div>
-                    <div class="info-item">Područje rada: Sisačko-moslavačka i Zagrebačka županija a po dogovoru i šire</div>
-                </div>
-                <div class="info-box">
-                    <h3>Radno vrijeme</h3>
-                    <ul class="working-hours-list">
-                        <li><span>Ponedjeljak - Petak</span> <span>08 - 16 h</span></li>
-                        <li><span>Vikend</span> <span>Zatvoreno</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
 
     <footer>
         <div class="container"><p>&copy; 2026 Roletarski servis D.J. - Sva prava pridržana.</p></div>
     </footer>
 
-
+    <!-- Gumb za povratak na vrh -->
+    <button id="backToTop" aria-label="Povratak na vrh">▲</button>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -882,26 +754,33 @@
             });
         });
 
-        
-    </script>
-<script>
-    const hamburger = document.getElementById('hamburger-toggle');
-    const navMenu = document.querySelector('nav ul');
-    const navLinks = document.querySelectorAll('nav ul li a');
+        // Logika za gumb "Povratak na vrh"
+        const backToTopBtn = document.getElementById('backToTop');
 
-    // Otvaranje/zatvaranje na klik hamburgera
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Zatvaranje izbornika kada se klikne na bilo koji link (npr. Kontakt, Usluge)
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
         });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+<script>
+    const btn = document.getElementById('hamburger-btn');
+    const menu = document.getElementById('nav-links');
+
+    btn.addEventListener('click', function() {
+        menu.classList.toggle('active');
+        btn.classList.toggle('active'); // Ovo pokreće X animaciju
     });
 </script>
-</body>
 </html>
