@@ -159,24 +159,27 @@
     border-radius: 50%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border: 1px solid #f1f5f9;
+    
+    /* Fiksna veličina za MOBITEL */
     width: 200px; 
     height: 200px; 
     margin: 0 auto;
-    /* UKLONI overflow: hidden; - to je ono što ti reže rubove slike! */
+    /* Maknuli smo overflow: hidden da se ništa ne reže */
 }
 
 .logo-wrapper img {
-    max-width: 80%; /* Logo neće biti prevelik */
-    max-height: 80%; /* Logo neće biti prevelik */
-    width: auto;     /* Ovo dozvoljava slici da zadrži svoj prirodni oblik */
-    height: auto;    /* Ovo dozvoljava slici da zadrži svoj prirodni oblik */
-    object-fit: contain;
+    /* OVO JE KLJUČNO: */
+    width: 100%;       /* Slika popunjava cijeli prostor */
+    height: 100%;      /* Slika popunjava cijeli prostor */
+    object-fit: contain; /* Ovo osigurava da se cijeli logo vidi unutar kruga, bez rastezanja */
+    padding: 15px;     /* Ovo stvara "zračni prostor" unutar kruga da logo ne dodiruje rubove */
+    box-sizing: border-box; /* Osigurava da padding ne poveća krug */
 }
 
 /* Veličina za RAČUNALO */
 @media (min-width: 769px) {
     .logo-wrapper {
-        width: 350px;
+        width: 350px; 
         height: 350px;
     }
 }
