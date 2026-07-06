@@ -151,7 +151,7 @@
     </script>
     
     <style>
-		.logo-wrapper {
+.logo-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,17 +159,26 @@
     border-radius: 50%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border: 1px solid #f1f5f9;
-    /* Ovo osigurava da krug bude uvijek krug */
-    width: 250px; 
-    height: 250px; 
+    
+    /* Veličina za MOBITEL (početna) */
+    width: 200px; 
+    height: 200px; 
     margin: 0 auto;
-    overflow: hidden; /* Sprečava da slika ispadne iz kruga */
+    overflow: hidden; 
 }
 
 .logo-wrapper img {
-    width: 80%; /* Logo će biti 80% širine kruga */
-    height: 80%; 
-    object-fit: contain; /* Ovo je ključ: slika se neće rastezati */
+    width: 90%;      /* Povećao sam sa 80% na 90% da logo ispuni prostor */
+    height: 90%; 
+    object-fit: contain; /* Ovo će sada pravilno smjestiti logo bez rezanja */
+}
+
+/* Veličina za RAČUNALO (veći krug) */
+@media (min-width: 769px) {
+    .logo-wrapper {
+        width: 350px; /* Ovdje povećaj broj ako želiš još veći krug */
+        height: 350px;
+    }
 }
         /* Reset i osnovni stilovi */
         * {
