@@ -179,15 +179,15 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-		/* Footer */
 		footer {
-		    background-color: #1f2937; /* Ista tamna kao header */
-		    color: #ffffff;            /* Bijeli tekst na tamnom */
-		    text-align: center;
-		    padding: 40px 20px;        /* Malo veći padding da ne izgleda stisnuto */
-		    border-top: 3px solid var(--akcent); /* Akcent linija ostaje */
-		    margin-top: 50px;          /* Razmak od zadnje sekcije iznad */
-		}
+    background-color: #1f2937; /* Ista tamna kao header */
+    color: #ffffff;            /* Bijeli tekst na tamnom */
+    text-align: center;
+    padding: 40px 20px;        /* Malo veći padding da ne izgleda stisnuto */
+    border-top: 3px solid var(--akcent); /* Akcent linija ostaje */
+    margin-top: 50px;          /* Razmak od zadnje sekcije iznad */
+}
+
         /* Navigacija */
         header {
             background-color: #ffffff;
@@ -783,12 +783,23 @@ nav {
 
 </body>
 <script>
-    const btn = document.getElementById('hamburger-btn');
-    const menu = document.getElementById('nav-links');
+const btn = document.getElementById('hamburger-btn');
+const menu = document.getElementById('nav-links');
 
-    btn.addEventListener('click', function() {
-        menu.classList.toggle('active');
-        btn.classList.toggle('active'); // Ovo pokreće X animaciju
+// Otvaranje/Zatvaranje klikom na gumb
+btn.addEventListener('click', function() {
+    menu.classList.toggle('active');
+    btn.classList.toggle('active'); 
+});
+
+// Zatvaranje klikom na linkove
+const navLinks = document.querySelectorAll('#nav-links a');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menu.classList.remove('active');
+        btn.classList.remove('active'); // OVO osigurava da se i gumb vrati u hamburger oblik
     });
+});
 </script>
 </html>
