@@ -150,7 +150,7 @@
     }
     </script>
     
-    <style>
+<style>
         /* Reset i osnovni stilovi */
         * {
             margin: 0;
@@ -179,14 +179,15 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-		footer {
-    background-color: #1f2937; /* Ista tamna kao header */
-    color: #ffffff;            /* Bijeli tekst na tamnom */
-    text-align: center;
-    padding: 40px 20px;        /* Malo veći padding da ne izgleda stisnuto */
-    border-top: 3px solid var(--akcent); /* Akcent linija ostaje */
-    margin-top: 50px;          /* Razmak od zadnje sekcije iznad */
-}
+		
+        footer {
+            background-color: #1f2937; 
+            color: #ffffff;            
+            text-align: center;
+            padding: 40px 20px;        
+            border-top: 3px solid var(--akcent); 
+            margin-top: 50px;          
+        }
 
         /* Navigacija */
         header {
@@ -332,152 +333,141 @@
         .working-hours-list { list-style: none; }
         .working-hours-list li { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px dashed #eee; }
 
+        /* Hamburger gumb */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            gap: 5px;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
 
-		/* Hamburger gumb - vidljiv samo na mobitelu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    background: none;
-    border: none;
-    gap: 5px;
-    padding: 5px;
-}
-.hamburger span {
-    width: 25px; height: 3px; background: #333; border-radius: 2px;
-}
-/* Animacija za hamburger linije */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    background: none;
-    border: none;
-    gap: 5px;
-    padding: 10px;
-    transition: all 0.3s ease;
-}
+        .hamburger span {
+            width: 25px; height: 3px; background: #1a365d; border-radius: 2px;
+            transition: all 0.3s ease;
+        }
 
-/* Osnovno stanje linija */
-.hamburger span {
-    width: 25px; height: 3px; background: #1a365d; border-radius: 2px;
-    transition: all 0.3s ease;
-}
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
 
-/* Kada je gumb aktivan (X izgled) */
-.hamburger.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
+        /* Gumb za povratak na vrh */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primarna);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 18px;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+        #backToTop:hover { background-color: var(--akcent); }
+        #backToTop.show { display: block; }
 
+        /* Mobiteli */
+        @media (max-width: 768px) {
+            header {
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                position: fixed !important;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
 
-/* Mobiteli */
-@media (max-width: 768px) {
-    /* 1. Header fiksiran na vrhu */
-header {
-    background-color: rgba(255, 255, 255); /* Bijela boja s 90% neprozirnosti */
-    backdrop-filter: blur(5px);              /* Zamućuje sadržaj ispod headera */
-    -webkit-backdrop-filter: blur(5px);      /* Za podršku na Safariju */
-    
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+            body { padding-top: 80px; }
 
-    /* 2. Padding na body da sadržaj ne bude sakriven */
-    body {
-        padding-top: 80px;
-    }
+            .hamburger { display: flex !important; }
+            
+            nav ul {
+                display: none; 
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                background-color: #ffffff;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active { display: flex !important; }
 
-    /* 3. Hamburger gumb */
-    .hamburger { 
-        display: flex !important; 
-    }
-    
-    /* 4. Navigacijska lista */
-    nav ul {
-        display: none; 
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        padding: 20px 0;
-        background-color: #ffffff;
-        position: absolute; /* Da izbornik "lebdi" preko sadržaja */
-        top: 100%; /* Točno ispod headera */
-        left: 0;
-    }
-    
-    /* Klasa koju JS dodaje (otvaranje) */
-    nav ul.active { 
-        display: flex !important; 
-    }
+            nav { 
+                display: flex;
+                flex-direction: row; 
+                justify-content: space-between; 
+                align-items: center;
+                padding: 15px 20px;
+                background-color: #ffffff;
+            }
 
-    /* 5. Ostali stilovi za mobitele */
-nav { 
-        display: flex;
-        flex-direction: row; 
-        justify-content: space-between; 
-        align-items: center;
-        padding: 15px 20px;
-        background-color: #ffffff;
-    }
+            .logo {
+                font-size: 18px; 
+                white-space: nowrap;
+            }
+            
+            nav ul li { margin: 8px 0; }
 
-    .logo {
-        font-size: 18px; 
-        white-space: nowrap; /* Ovo sprječava prelazak u novi red */
-    }
-    
-    nav ul li { margin: 8px 0; }
+            .working-hours-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 8px 0;
+            }
 
-    .working-hours-list li {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px 0;
-    }
-
-    .contact-layout, .reviews-layout { grid-template-columns: 1fr; }
-}
+            .contact-layout, .reviews-layout { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container">
-<nav>
-    <div class="logo">Roletarski servis <span>D.J.</span></div>
+            <nav>
+                <div class="logo">Roletarski servis <span>D.J.</span></div>
 
-    <!-- Gumb -->
-    <button class="hamburger" id="hamburger-btn">
-        <span></span><span></span><span></span>
-    </button>
+                <button class="hamburger" id="hamburger-btn" aria-label="Izbornik">
+                    <span></span><span></span><span></span>
+                </button>
 
-    <!-- Lista mora imati id="nav-links" -->
-    <ul id="nav-links">
-        <li><a href="#o-nama">O nama</a></li>
-        <li><a href="#usluge">Usluge</a></li>
-        <li><a href="#podrucje-rada">Područje rada</a></li>
-        <li><a href="#galerija">Galerija</a></li>
-        <li><a href="#recenzije">Recenzije</a></li>
-        <li><a href="#faq">Česta pitanja</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
-</nav>
+                <ul id="nav-links">
+                    <li><a href="#o-nama">O nama</a></li>
+                    <li><a href="#usluge">Usluge</a></li>
+                    <li><a href="#podrucje-rada">Područje rada</a></li>
+                    <li><a href="#galerija">Galerija</a></li>
+                    <li><a href="#recenzije">Recenzije</a></li>
+                    <li><a href="#faq">Česta pitanja</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
         </div>
-		
     </header>
 
     <main>
         <section style="padding: 60px 0; background-color: #ffffff; text-align: center;">
             <div class="container">
-            <img src="slike/logo.png.png" fetchpriority="high" width="300" height="300" alt="Roletarski servis D.J. Logo" style="max-width: 100%; height: auto; max-height: 250px; object-fit: contain; display: block; margin: 0 auto 20px auto;">
+                <img src="slike/logo.png.png" fetchpriority="high" width="300" height="300" alt="Roletarski servis D.J. Logo" style="max-width: 100%; height: auto; max-height: 250px; object-fit: contain; display: block; margin: 0 auto 20px auto;">
                 
                 <div style="max-width: 800px; margin: 0 auto;">
                     <h1 style="font-size: 36px; color: var(--primarna); margin-bottom: 20px; font-weight: bold;">Popravak i ugradnja roleta i komarnika u Sisku, Petrinji i okolici</h1>
@@ -563,7 +553,6 @@ nav {
             </div>
         </section>
 
-        <!-- NOVI SEO ODJELJAK: Područje rada za jačanje lokalnog SEO pretraživanja -->
         <section id="podrucje-rada" class="container">
             <h2 class="section-title">Područje rada i dostupnost</h2>
             <p class="about-text" style="margin-bottom: 20px;">Glavno sjedište našeg obrta nalazi se u Mošćenici, a usluge izmjere, ugradnje i popravaka redovito vršimo na području dvije županije.</p>
@@ -575,7 +564,6 @@ nav {
                     <strong>ZAGREBAČKA ŽUPANIJA</strong><br>
                     (Ivanić-Grad, Dugo Selo, istočni dio Zagreba)<br><br>
                     Te ostala mjesta po izravnom dogovoru. Nazovite nas i provjerite dostupnost za Vaše mjesto.
-                </p>
                 </p>
             </div>
         </section>
@@ -666,6 +654,59 @@ nav {
                             <li><span>Vikend</span> <span>Zatvoreno</span></li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CJENIK SEKCIJA -->
+        <section id="cjenik" class="services-bg" style="padding: 50px 0;">
+            <div class="container" style="max-width: 800px; text-align: center;">
+                <h2 class="section-title" style="font-size: 26px; margin-bottom: 20px;">Cjenik usluga</h2>
+                <p style="color: #555; margin-bottom: 25px; font-size: 15px;">
+                    Pregledajte naš važeći cjenik usluga i proizvoda.
+                </p>
+                
+                <div>
+                    <a href="<section id="kontakt" class="container" style="background-color: #ffffff;">
+            <div class="container">
+                <h2 class="section-title">Kontakt i informacije</h2>
+                <div class="contact-layout">
+                    <div class="info-box">
+                        <h3>Kontakt podaci</h3>
+                        <div class="info-item"><strong>Adresa:</strong> Vatroslava Lisinskog 47, 44253, Mošćenica</div>
+                        <div class="info-item"><strong>Telefon:</strong> <a href="tel:0917857855" style="color: inherit; font-weight: bold;">091 / 785 - 7855</a></div>
+                        <div class="info-item"><strong>Područje rada:</strong> Cijela Sisačko-moslavačka i Zagrebačka županija</div>
+                    </div>
+                    <div class="info-box">
+                        <h3>Radno vrijeme</h3>
+                        <ul class="working-hours-list">
+                            <li><span>Ponedjeljak - Petak</span> <span>08 - 16 h</span></li>
+                            <li><span>Vikend</span> <span>Zatvoreno</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CJENIK SEKCIJA -->
+        <section id="cjenik" class="services-bg" style="padding: 50px 0;">
+            <div class="container" style="max-width: 800px; text-align: center;">
+                <h2 class="section-title" style="font-size: 26px; margin-bottom: 20px;">Cjenik usluga</h2>
+                <p style="color: #555; margin-bottom: 25px; font-size: 15px;">
+                    Pregledajte naš važeći cjenik usluga i proizvoda.
+                </p>
+                
+                <div>
+                    <!-- OVDJE UMJESTO hashtag-a (#) ZALIJEPI SVOJ LINK IZMEĐU NAVODNIKA -->
+                    <a href="https://cjenik.neosalon.hr/vrvzgb8m8o" target="_blank" class="btn" style="background-color: var(--primarna); font-size: 16px; padding: 15px 30px;">
+                        📄 Otvori važeći cjenik
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>" target="_blank" class="btn" style="background-color: var(--primarna); font-size: 16px; padding: 15px 30px;">
+                        📄 Otvori važeći cjenik
+                    </a>
                 </div>
             </div>
         </section>
@@ -781,25 +822,23 @@ nav {
         });
     </script>
 
+    <script>
+        const btn = document.getElementById('hamburger-btn');
+        const menu = document.getElementById('nav-links');
+
+        btn.addEventListener('click', function() {
+            menu.classList.toggle('active');
+            btn.classList.toggle('active'); 
+        });
+
+        const navLinks = document.querySelectorAll('#nav-links a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                btn.classList.remove('active'); 
+            });
+        });
+    </script>
 </body>
-<script>
-const btn = document.getElementById('hamburger-btn');
-const menu = document.getElementById('nav-links');
-
-// Otvaranje/Zatvaranje klikom na gumb
-btn.addEventListener('click', function() {
-    menu.classList.toggle('active');
-    btn.classList.toggle('active'); 
-});
-
-// Zatvaranje klikom na linkove
-const navLinks = document.querySelectorAll('#nav-links a');
-
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menu.classList.remove('active');
-        btn.classList.remove('active'); // OVO osigurava da se i gumb vrati u hamburger oblik
-    });
-});
-</script>
 </html>
